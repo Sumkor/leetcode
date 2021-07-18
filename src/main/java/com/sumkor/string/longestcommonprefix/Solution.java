@@ -34,7 +34,7 @@ public class Solution {
                 return "";
             }
             int index = 0;
-            for (int j = 0; j < minLength; j++) {
+            for (int j = 0; j < minLength; j++) { // 遍历字符串中的每一个字符，计算当前的最长公共前缀
                 if (longestCommonPrefix.charAt(j) == currStr.charAt(j)) {
                     index++;
                 } else {

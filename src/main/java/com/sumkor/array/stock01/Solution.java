@@ -29,10 +29,10 @@ public class Solution {
         for (int i = 0; i < prices.length; i++) {
             if (prices[i] > min) {
                 if (maxProfit < prices[i] - min) {
-                    maxProfit = prices[i] - min;
+                    maxProfit = prices[i] - min; // 记录最大差值
                 }
             } else {
-                min = prices[i];
+                min = prices[i]; // 找到最小值
             }
         }
         return maxProfit;
