@@ -20,7 +20,7 @@ public class Solution02 {
         int len = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
-                nums[len++] = nums[i];
+                nums[len++] = nums[i]; // 先赋值，再自增
             }
         }
         return len;
