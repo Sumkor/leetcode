@@ -1,4 +1,4 @@
-package com.sumkor.array.stock01;
+package com.sumkor.array._0121_stock;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;

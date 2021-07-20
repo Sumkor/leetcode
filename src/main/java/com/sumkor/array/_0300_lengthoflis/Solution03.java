@@ -1,4 +1,4 @@
-package com.sumkor.array.lengthoflis;
+package com.sumkor.array._0300_lengthoflis;
 
 import org.junit.Test;
 

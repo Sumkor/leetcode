@@ -1,4 +1,4 @@
-package com.sumkor.array.stock02;
+package com.sumkor.array._0122_stock;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.sumkor.array.intersect;
+package com.sumkor.array._0350_intersect;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.sumkor.string.longestcommonprefix;
+package com.sumkor.string._0014_longestcommonprefix;
 
 import org.junit.Test;
 
