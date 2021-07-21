@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author Sumkor
@@ -41,6 +42,7 @@ public class Solution {
                 map.put(nums[i] + nums[j], new int[]{nums[i], nums[j]});
             }
         }
+        lists = lists.stream().distinct().collect(Collectors.toList());
         return lists;
     }
 
@@ -48,6 +50,7 @@ public class Solution {
     public void test() {
         int[] nums = {-1, 0, 1, 2, -1, -4};
 //        int[] nums = {-1, 0, 1};
+//        int[] nums = {-1,0,1,0};
         List<List<Integer>> lists = threeSum(nums);
         System.out.println("lists = " + lists);
     }
