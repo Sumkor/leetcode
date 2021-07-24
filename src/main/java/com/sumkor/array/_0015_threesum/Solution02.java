@@ -4,11 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * @author Sumkor
@@ -16,11 +12,18 @@ import java.util.stream.Collectors;
  */
 public class Solution02 {
 
+    /**
+     * 使用 countMap 记录已有的值，用于快速定位
+     * 使用 distinctSet 用于结果去重
+     *
+     * 执行用时：341 ms, 在所有 Java 提交中击败了9.42% 的用户
+     * 内存消耗：44.9 MB, 在所有 Java 提交中击败了5.02% 的用户
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
         // 计数 map: key=nums[i], value=count
         Map<Integer, Integer> countMap = new HashMap<>(nums.length);
-        Map<Integer, List<Integer>> distinctMap = new HashMap<>(nums.length);
+        HashSet<List<Integer>> distinctSet = new HashSet<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
             if (i == 0) {
                 countMap.put(nums[i], 1);
@@ -35,7 +38,6 @@ public class Solution02 {
                         countMap.put(nums[j], 1);
                     }
                 }
-
                 // 不处理三个0的情况
                 if (nums[i] == 0 && nums[j] == 0) {
                     continue;
@@ -55,15 +57,9 @@ public class Solution02 {
                     list.add(min);
                     list.add(-min - max);
                     list.add(max);
-                    lists.add(list);
-                    if (distinctMap.containsKey(list.hashCode())) {
-                        List<Integer> duplicateList = distinctMap.get(list.hashCode());
-                        if (duplicateList.get(0) != min && duplicateList.get(2) != max) {
-                            lists.add(list);
-                        }
-                    } else {
+                    if (!distinctSet.contains(list)) { // hash 冲突时，使用 equal 对比
                         lists.add(list);
-                        distinctMap.put(list.hashCode(), list);
+                        distinctSet.add(list);
                     }
                 }
             }
@@ -76,7 +72,6 @@ public class Solution02 {
             list.add(0);
             lists.add(list);
         }
-        lists = lists.stream().distinct().collect(Collectors.toList());
         return lists;
     }
 
@@ -124,7 +119,7 @@ public class Solution02 {
                     list.add(min);
                     list.add(-min - max);
                     list.add(max);
-                    if (!lists.contains(list)) {
+                    if (!lists.contains(list)) { // 去重，很耗时！！
                         lists.add(list);
                     }
                 }
@@ -135,19 +130,19 @@ public class Solution02 {
 
     @Test
     public void test() {
-        int[] nums = {-1, 0, 1, 2, -1, -4};
+//        int[] nums = {-1, 0, 1, 2, -1, -4};
 //        int[] nums = {-1, 0, 1};
 //        int[] nums = {-1, 0, 1, 0};
 //        int[] nums = {0, 0, 0};
-//        int[] nums = {-99927,2246,97681};
+        int[] nums = {-90606, 6822, 83784};
         List<List<Integer>> lists = threeSum(nums);
         System.out.println("lists = " + lists);
     }
 
     @Test
     public void testLong() throws Exception {
-//        File file = new File("D:\\work\\github\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input.txt");
-        File file = new File("D:\\work\\github\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input2.txt");
+//        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input.txt");
+        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input2.txt");
         boolean exists = file.exists();
         System.out.println("exists = " + exists);
 
@@ -160,7 +155,7 @@ public class Solution02 {
         long start = System.currentTimeMillis();
         List<List<Integer>> lists = threeSum(input);
         System.out.println("ms:" + (System.currentTimeMillis() - start));
-        System.out.println("lists = " + lists);
         System.out.println("lists.size() = " + lists.size());
+//        System.out.println("lists = " + lists);
     }
 }
