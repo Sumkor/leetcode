@@ -7,10 +7,145 @@ import java.io.File;
 import java.util.*;
 
 /**
+ * 个人解答汇总
+ * 思路都是采用 hashMap + 两层循环
+ *
+ * threeSum0 是最初的尝试，由于使用 lists.contains() 来去重，到时超时。
+ * threeSum1 引入 HashSet 来去重，threeSum2 是它的进一步优化版本。
+ * threeSum 则是参考了官方题解，利用排序来去重，进一步压缩了时间。
+ *
+ * 由于引入 hashMap，内存消耗较大。
+ *
  * @author Sumkor
  * @since 2021/7/23
  */
 public class Solution02 {
+
+    /**
+     * 使用 countMap 记录已有的值，用于快速定位
+     * 使用排序，用于去重
+     *
+     * 执行用时：43 ms, 在所有 Java 提交中击败了14.69% 的用户
+     * 内存消耗：42.5 MB, 在所有 Java 提交中击败了37.54% 的用户
+     */
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> lists = new ArrayList<List<Integer>>();
+        Map<Integer, Boolean> countMap = new HashMap<>(nums.length);
+        int zeroCount = 0;
+        // 只能提前初始化 map
+        for (int i = 0; i < nums.length; i++) {
+            countMap.put(nums[i], countMap.containsKey(nums[i]));
+            if (nums[i] == 0 && zeroCount < 3) {
+                zeroCount++;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            // 需要和上一次枚举的数不相同
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            // 由于已经排序好，nums[i] 大于 0 时后面不可能有三个数加和等于 0，直接返回结果。
+            if (nums[i] > 0) {
+                break;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                // 需要和上一次枚举的数不相同
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                // 不处理三个0的情况
+                if (nums[i] == 0 && nums[j] == 0) {
+                    continue;
+                }
+                int targetNum = -(nums[i] + nums[j]);
+                // 由于排过序，必须满足 nums[i] <= nums[j] <= targetNum
+                if (targetNum < nums[j]) {
+                    continue;
+                }
+                if (countMap.containsKey(targetNum)) {
+                    // 若 targetNum 与当前遍历的值相同，则需要确保 targetNum 不是当前值本身
+                    if (targetNum == nums[j] || targetNum == nums[i]) {
+                        if (!countMap.get(targetNum)) {
+                            continue;
+                        }
+                    }
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[j]);
+                    list.add(targetNum);
+                    lists.add(list);
+                }
+            }
+        }
+        // 最后处理三个0的情况
+        if (zeroCount == 3) {
+            List<Integer> list = new ArrayList<>();
+            list.add(0);
+            list.add(0);
+            list.add(0);
+            lists.add(list);
+        }
+        return lists;
+    }
+
+    /**
+     * 使用 countMap 记录已有的值，用于快速定位
+     * 使用 distinctSet 用于结果去重
+     * 优化版
+     *
+     * 执行用时：297 ms, 在所有 Java 提交中击败了9.93% 的用户
+     * 内存消耗：43.8 MB, 在所有 Java 提交中击败了5.02% 的用户
+     */
+    public List<List<Integer>> threeSum2(int[] nums) {
+        Map<Integer, Boolean> countMap = new HashMap<>(nums.length);
+        HashSet<List<Integer>> distinctSet = new HashSet<>(nums.length);
+        int zeroCount = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i == 0) {
+                countMap.put(nums[i], false);
+            }
+            if (nums[i] == 0 && zeroCount < 3) {
+                zeroCount++;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                // 第一次循环，计数
+                if (i == 0) {
+                    countMap.put(nums[j], countMap.containsKey(nums[j])); // 对于 value，若为 true 表示重复
+                }
+                // 不处理三个0的情况
+                if (nums[i] == 0 && nums[j] == 0) {
+                    continue;
+                }
+                int targetNum = -(nums[i] + nums[j]);
+                if (countMap.containsKey(targetNum)) {
+                    // 若 targetNum 与当前遍历的值相同，则需要确保 targetNum 不是当前值本身
+                    if (targetNum == nums[i] || targetNum == nums[j]) {
+                        if (!countMap.get(targetNum)) {
+                            continue;
+                        }
+                    }
+                    // 从小到大
+                    int min = Math.min(Math.min(nums[i], nums[j]), targetNum);
+                    int max = Math.max(Math.max(nums[i], nums[j]), targetNum);
+                    List<Integer> list = new ArrayList<>();
+                    list.add(min);
+                    list.add(-min - max);
+                    list.add(max);
+                    distinctSet.add(list);
+                }
+            }
+        }
+        // 最后处理三个0的情况
+        if (zeroCount == 3) {
+            List<Integer> list = new ArrayList<>();
+            list.add(0);
+            list.add(0);
+            list.add(0);
+            distinctSet.add(list);
+        }
+        return new ArrayList<>(distinctSet);
+    }
 
     /**
      * 使用 countMap 记录已有的值，用于快速定位
@@ -19,7 +154,7 @@ public class Solution02 {
      * 执行用时：341 ms, 在所有 Java 提交中击败了9.42% 的用户
      * 内存消耗：44.9 MB, 在所有 Java 提交中击败了5.02% 的用户
      */
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum1(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
         // 计数 map: key=nums[i], value=count
         Map<Integer, Integer> countMap = new HashMap<>(nums.length);
@@ -134,15 +269,16 @@ public class Solution02 {
 //        int[] nums = {-1, 0, 1};
 //        int[] nums = {-1, 0, 1, 0};
 //        int[] nums = {0, 0, 0};
-        int[] nums = {-90606, 6822, 83784};
+        int[] nums = {0, 0};
+//        int[] nums = {-90606, 6822, 83784};
         List<List<Integer>> lists = threeSum(nums);
         System.out.println("lists = " + lists);
     }
 
     @Test
     public void testLong() throws Exception {
-//        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input.txt");
-        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input2.txt");
+        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input.txt");
+//        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input2.txt");
         boolean exists = file.exists();
         System.out.println("exists = " + exists);
 
