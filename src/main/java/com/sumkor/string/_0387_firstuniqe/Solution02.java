@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.HashSet;
 
 /**
- * @author 黄泽滨 【huangzebin@i72.com】
+ * @author Sumkor
  * @since 2021/7/28
  */
 public class Solution02 {
