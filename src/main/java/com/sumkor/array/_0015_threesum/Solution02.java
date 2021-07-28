@@ -10,7 +10,7 @@ import java.util.*;
  * 个人解答汇总
  * 思路都是采用 hashMap + 两层循环
  *
- * threeSum0 是最初的尝试，由于使用 lists.contains() 来去重，到时超时。
+ * threeSum0 是最初的尝试，由于使用 lists.contains() 来去重，导致超时。
  * threeSum1 引入 HashSet 来去重，threeSum2 是它的进一步优化版本。
  * threeSum 则是参考了官方题解，利用排序来去重，进一步压缩了时间。
  *
