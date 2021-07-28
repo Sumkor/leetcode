@@ -1,4 +1,4 @@
-package com.sumkor.array._0300_lengthoflis;
+package com.sumkor.array._0300_longestincreasingsubseq;
 
 import org.junit.Test;
 
