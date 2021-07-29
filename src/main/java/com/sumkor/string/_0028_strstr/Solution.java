@@ -14,6 +14,7 @@ import org.junit.Test;
  *
  * 疑问，strStr2 的性能为什么比 strStr3 差那么多？
  * 网上的说法是 charAt() 涉及对栈帧的操作，不如数组直接取下标高效。
+ * 实际上，把 strStr1 和 strStr2 中的 charAt() 改为取数组下标法，性能就可以达到 strStr3 和 strStr 的水平。
  *
  * @author Sumkor
  * @since 2021/7/28
