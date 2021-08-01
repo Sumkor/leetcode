@@ -37,7 +37,7 @@ public class Solution {
             return -1;
         }
         for (int i = 0; i < aLength; i++) {
-            // 子串比 needle 还短，直接退出
+            // 主串的剩余子串比 needle 还短，直接退出
             if (aLength - i < bLength) {
                 break;
             }
