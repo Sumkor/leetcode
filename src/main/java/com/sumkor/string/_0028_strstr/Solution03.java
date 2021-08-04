@@ -47,6 +47,9 @@ public class Solution03 {
      *
      * 执行用时：4 ms, 在所有 Java 提交中击败了52.79% 的用户
      * 内存消耗：38.3 MB, 在所有 Java 提交中击败了47.11% 的用户
+     *
+     * 时间复杂度：O(n+m)，其中 n 是字符串 haystack 的长度，m 是字符串 needle 的长度。我们至多需要遍历两字符串一次。
+     * 空间复杂度：O(m)，其中 m 是字符串 needle 的长度。我们只需要保存字符串 needle 的前缀函数。
      */
     public int strStr(String haystack, String needle) {
         // 两种特殊情况
@@ -77,6 +80,7 @@ public class Solution03 {
         int j = 0;
         for (int i = 0; i < aLength; ++i) {
             // 若字符不匹配，则根据 next 数组移动指针 j，将其移动到【最大公共前后缀】的前缀子串的后一位
+            // 注意，只有当 i 和 j 位置的字符曾经发生过匹配时（这样才会满足 j > 0）才需要回溯 j 指针
             while (j > 0 && aArray[i] != bArray[j]) {
                 // i 与 j 位置上的字符不匹配，但是可知模式串的 [0, j-1] 范围的字符是匹配的，因此查询模式串的 [0, j-1] 范围的最大公共前后缀，以获取 j 指针的新位置
                 j = next[j - 1] + 1;

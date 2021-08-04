@@ -18,14 +18,14 @@ public class Solution {
      */
     public int lengthOfLongestSubstring(String s) {
         int maxLength = 0;
-        int length = s.length();
+        int n = s.length();
         char[] array = s.toCharArray();
         // 从 i 位置开始，列举不重复的后续字符，记录最大长度
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < n; i++) {
             HashSet<Character> set = new HashSet<>();
             set.add(array[i]);
             int j = i + 1;
-            while (j < length && !set.contains(array[j])) {
+            while (j < n && !set.contains(array[j])) {
                 set.add(array[j]);
                 j++;
             }
