@@ -1,4 +1,4 @@
-package com.sumkor.string._0005_longestpalindrome;
+package com.sumkor.string._0005_longestPalindrome;
 
 import org.junit.Test;
 

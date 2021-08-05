@@ -23,24 +23,29 @@ public class Solution {
         if (strs == null || strs.length == 0) {
             return "";
         }
-        String longestCommonPrefix = strs[0]; // 最终的最长公共前缀
+        // 先取第一个，作为最终的最长公共前缀
+        String longestCommonPrefix = strs[0];
+        // 从数组中的第二个元素开始对比
         for (int i = 0; i < strs.length; i++) {
             if (i == 0) {
                 continue;
             }
             String currStr = strs[i];
+            // 如果数组中包含空串，则直接跳出
             int minLength = Math.min(longestCommonPrefix.length(), currStr.length());
             if (minLength == 0) {
                 return "";
             }
             int index = 0;
-            for (int j = 0; j < minLength; j++) { // 遍历字符串中的每一个字符，计算当前的最长公共前缀
+            // 遍历字符串中的每一个字符，计算当前的最长公共前缀
+            for (int j = 0; j < minLength; j++) {
                 if (longestCommonPrefix.charAt(j) == currStr.charAt(j)) {
                     index++;
                 } else {
                     break;
                 }
             }
+            // 如果当前字符串不存在公共前缀，则直接跳出
             if (index == 0) {
                 return "";
             }
@@ -88,7 +93,8 @@ public class Solution {
 
     @Test
     public void test() {
-        String[] strs = {"flower", "flow", "flight"};
+//        String[] strs = {"flower", "flow", "flight"};
+        String[] strs = {"flower"};
         String result = longestCommonPrefix(strs);
         System.out.println("result = " + result);
     }
