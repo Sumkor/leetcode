@@ -1,5 +1,6 @@
 package com.sumkor.linked._0019_removefromend;
 
+import com.sumkor.linked.ListNode;
 import org.junit.Test;
 
 /**
@@ -13,6 +14,9 @@ public class Solution {
      *
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00% 的用户
      * 内存消耗：36.3 MB, 在所有 Java 提交中击败了65.92% 的用户
+     *
+     * 时间复杂度：O(L)，其中 L 是链表的长度。
+     * 空间复杂度：O(1)。
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) {
@@ -54,6 +58,36 @@ public class Solution {
             i++;
         }
         return head;
+    }
+
+    /**
+     * 官方题解：计算链表长度
+     *
+     * 在对链表进行操作时，一种常用的技巧是添加一个哑节点（dummy node），它的 next 指针指向链表的头节点。
+     * 这样一来，我们就不需要对头节点进行特殊的判断了。
+     * 例如，在本题中，如果我们要删除节点 y，我们需要知道节点 y 的前驱节点 x，并将 x 的指针指向 y 的后继节点。
+     * 但由于头节点不存在前驱节点，因此我们需要在删除头节点时进行特殊判断。
+     * 但如果我们添加了哑节点，那么头节点的前驱节点就是哑节点本身，此时我们就只需要考虑通用的情况即可。
+     */
+    public ListNode removeNthFromEnd0(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+        int length = getLength(head);
+        ListNode cur = dummy;
+        // 当遍历到第 length - n + 1 个节点时，它的下一个节点就是我们需要删除的节点
+        for (int i = 1; i < length - n + 1; ++i) {
+            cur = cur.next;
+        }
+        cur.next = cur.next.next;
+        return dummy.next;
+    }
+
+    public int getLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            ++length;
+            head = head.next;
+        }
+        return length;
     }
 
     /**

@@ -8,6 +8,7 @@
 /**
  * @see com.sumkor.array._0015_threesum.Solution03
  * @see com.sumkor.array._0350_intersect.Solution02
+ * @see com.sumkor.linked._0019_removefromend.Solution02
  */
 ```
 

@@ -79,10 +79,11 @@ public class Solution03 {
         // 定义 j 为模式串上的指针，i 为主串上的指针
         int j = 0;
         for (int i = 0; i < aLength; ++i) {
-            // 若字符不匹配，则根据 next 数组移动指针 j，将其移动到【最大公共前后缀】的前缀子串的后一位
+            // 如果不相同，需要回溯 j 指针
             // 注意，只有当 i 和 j 位置的字符曾经发生过匹配时（这样才会满足 j > 0）才需要回溯 j 指针
             while (j > 0 && aArray[i] != bArray[j]) {
-                // i 与 j 位置上的字符不匹配，但是可知模式串的 [0, j-1] 范围的字符是匹配的，因此查询模式串的 [0, j-1] 范围的最大公共前后缀，以获取 j 指针的新位置
+                // i 与 j 位置上的字符不匹配，但是可知模式串的 [0, j - 1] 范围的字符是匹配的
+                // 因此查询模式串的 [0, j - 1] 范围的最大公共前后缀，以获取 j 指针的新位置，即【最大公共前后缀】的前缀子串的后一位
                 j = next[j - 1] + 1;
                 // 超出长度时，可以直接返回不存在（主串的剩余子串 比 模式串的剩余子串 还短，直接退出）
                 if (bLength - j > aLength - i) {
@@ -115,9 +116,19 @@ public class Solution03 {
      *
      * 这里 next1 和 next2 都是正确的 next 数组，本例中是 next1 实现。
      *
+     *
+     * 对于 i 与 j 位置的字符不相同，需要回溯 j 指针的情况：
+     *
      *                        i
      *         b  c  b  c  b  b  a
-     *                  j
+     *         ↑        j
+     *      j回溯位置
+     *
+     *                                 i
+     *         x  x  y  x  x  y  x  x  x
+     *            ↑           j
+     *         j回溯位置
+     *
      */
     public int[] next(char[] array, int length) {
         // 定义 next 数组
@@ -127,17 +138,17 @@ public class Solution03 {
         int j = 0;
         // next 数组的下标 0 位置的值总是 -1，因此 i 只需从下标 1 位置开始遍历 array，以构造 next 数组
         for (int i = 1; i < length; ++i) {
-            // 注意，只有当 i 和 j 位置的字符曾经发生过匹配时（这样才会满足 j != 0），才会进入以下 while 逻辑
-            // 这里判断 i 和 j 位置的字符不相等，需要将指针 j 回溯到 next[j - 1] + 1 的位置再进行对比，一直回溯，直到 j == 0 则跳出循环
+            // 如果不相同，需要回溯 j 指针
+            // 注意，只有当 i 和 j 位置的字符曾经发生过匹配时（这样才会满足 j != 0），才需要回溯 j 指针。一直回溯，直到 j == 0 则跳出循环
             while (j != 0 && array[j] != array[i]) {
-                // 此时 i 和 j 位置的字符不相等，但是对于 j - 1 位置的字符，可能存在与之相匹配的！！（建议代入例子来理解，如模式串：bcbcbba，当 i = 5，j = 3）
-                // 与之匹配的分别是 i - 1 位置和 next[j - 1] 位置的字符，因此，将 i - 1 位置与 next[j - 1] 位置对齐，下一次可以直接比较 i 位置与 next[j - 1] + 1 位置的字符是否相等
-                // 这样可以避免重复比较 next[j - 1] 位置之前的字符
+                // 此时 i 和 j 位置的字符不相等，但是 j - 1 位置的字符，有可能跟 i - 1 位置的字符是相匹配的！！而 j - 1 位置的字符，又是跟 next[j - 1] 位置的字符是相匹配的。
+                // 因此，将 i - 1 位置与 next[j - 1] 位置对齐，下一次可以直接比较 i 位置与 next[j - 1] + 1 位置的字符是否相等
+                // 也就是说，将 j 回溯到模式串的已匹配部分（即 0 到 j - 1 的范围部分）的【最大公共前后缀】的前缀子串的后一位
                 j = next[j - 1] + 1;
             }
             // 走到这里，分为两种情况：
             // i 和 j 位置的字符相等，则利用 next[i] 记录当前的下标 j，后续会继续比较 i+1 与 j+1 位置的字符是否相等
-            // i 和 j 位置的字符不相等，此时 j 只能是 0，即 next[i] 赋值为 -1
+            // i 和 j 位置的字符不相等，此时 j 只能是 0（因为无法再回溯了），即 next[i] 赋值为 -1
             if (array[j] == array[i]) {
                 next[i] = j;
                 j++;
@@ -187,9 +198,9 @@ public class Solution03 {
     @Test
     public void next() {
 //        String needle = "bcbcbea";
-//        String needle = "bcbcbba";
+        String needle = "bcbcbba";
 //        String needle = "abcdabcc";
-        String needle = "xxyxxyxxx";
+//        String needle = "xxyxxyxxx";
 //        String needle = "abaabcac";
         int[] next = next(needle.toCharArray(), needle.length());
         Arrays.stream(next).forEach(t -> System.out.print(t + " "));

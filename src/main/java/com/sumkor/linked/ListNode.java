@@ -1,4 +1,4 @@
-package com.sumkor.linked._0019_removefromend;
+package com.sumkor.linked;
 
 /**
  * Definition for singly-linked list.
@@ -8,17 +8,17 @@ package com.sumkor.linked._0019_removefromend;
  */
 public class ListNode {
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode() {
+    public ListNode() {
     }
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
@@ -32,10 +32,10 @@ public class ListNode {
         }
         StringBuilder result = new StringBuilder("[" + node.val);
         // 游标节点
-        ListNode nextNode = node.next;
-        while (nextNode != null) {
-            result.append(",").append(nextNode.val);
-            nextNode = nextNode.next;
+        ListNode curr = node.next;
+        while (curr != null) {
+            result.append(",").append(curr.val);
+            curr = curr.next;
         }
         return result + "]";
     }
