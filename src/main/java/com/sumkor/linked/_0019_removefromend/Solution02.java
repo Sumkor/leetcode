@@ -49,12 +49,8 @@ public class Solution02 {
      */
     @Test
     public void test01() {
-        ListNode node05 = new ListNode(5);
-        ListNode node04 = new ListNode(4, node05);
-        ListNode node03 = new ListNode(3, node04);
-        ListNode node02 = new ListNode(2, node03);
-        ListNode node01 = new ListNode(1, node02);
-        ListNode listNode = removeNthFromEnd(node01, 2);
+        ListNode listNode = ListNode.create(1, 2, 3, 4, 5);
+        listNode = removeNthFromEnd(listNode, 2);
         System.out.println(ListNode.print(listNode));
     }
 }

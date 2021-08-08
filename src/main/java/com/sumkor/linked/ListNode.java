@@ -39,4 +39,23 @@ public class ListNode {
         }
         return result + "]";
     }
+
+    /**
+     * 创建链表
+     */
+    public static ListNode create(Integer... list) {
+        ListNode head = new ListNode();
+        ListNode curr = head;
+        for (Integer integer : list) {
+            curr.next = new ListNode(integer);
+            curr = curr.next;
+        }
+        return head.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode listNode = create(1, 2, 3, 4);
+        String print = print(listNode);
+        System.out.println("print = " + print);
+    }
 }
