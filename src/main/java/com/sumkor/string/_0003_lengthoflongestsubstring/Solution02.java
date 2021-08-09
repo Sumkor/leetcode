@@ -117,7 +117,7 @@ public class Solution02 {
 //        String s = "bbbbb";
 //        String s = "tmmzuxt";
         String s = " ";
-        int length = lengthOfLongestSubstring2(s);
+        int length = lengthOfLongestSubstring1(s);
         System.out.println("length = " + length);
     }
 }

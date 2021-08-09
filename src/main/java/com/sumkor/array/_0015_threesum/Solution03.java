@@ -1,9 +1,8 @@
 package com.sumkor.array._0015_threesum;
 
-import org.apache.commons.io.FileUtils;
+import com.sumkor.FileHelper;
 import org.junit.Test;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,18 +90,10 @@ public class Solution03 {
     }
 
     @Test
-    public void testLong() throws Exception {
-        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input.txt");
-//        File file = new File("C:\\TOOL\\Code\\GitHub\\leetcode\\src\\main\\java\\com\\sumkor\\array\\_0015_threesum\\input2.txt");
-        boolean exists = file.exists();
-        System.out.println("exists = " + exists);
+    public void testLong() {
+        int[] input = FileHelper.readFileToArray("com/sumkor/array/_0015_threesum/input.txt");
+//        int[] input = FileHelper.readFileToArray("com/sumkor/array/_0015_threesum/input2.txt");
 
-        String fileToString = FileUtils.readFileToString(file, "UTF8");
-        String[] split = fileToString.split(",");
-        int[] input = new int[split.length];
-        for (int i = 0; i < split.length; i++) {
-            input[i] = Integer.parseInt(split[i]);
-        }
         long start = System.currentTimeMillis();
         List<List<Integer>> lists = threeSum(input);
         System.out.println("ms:" + (System.currentTimeMillis() - start));

@@ -13,7 +13,7 @@ public class Solution02 {
      * 官方题解
      * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/solution/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/
      *
-     * 快慢指针
+     * 双指针
      *
      * 通过双指针，可以在不预处理出链表的长度，以及使用常数空间的前提下解决本题。
      * 由于我们需要找到倒数第 n 个节点，因此我们可以使用两个指针 first 和 second 同时对链表进行遍历，并且 first 比 second 超前 n 个节点。

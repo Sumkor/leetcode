@@ -1,9 +1,7 @@
 package com.sumkor.array._0121_stock;
 
-import org.apache.commons.io.FileUtils;
+import com.sumkor.FileHelper;
 import org.junit.Test;
-
-import java.io.File;
 
 /**
  * @author Sumkor
@@ -102,18 +100,9 @@ public class Solution {
     }
 
     @Test
-    public void testLong() throws Exception {
-        File file = new File("C:/TOOL/Code/GitHub/leetcode/src/main/java/com/sumkor/array/stock01/input.txt");
-        boolean exists = file.exists();
-        System.out.println("exists = " + exists);
+    public void testLong() {
+        int[] prices = FileHelper.readFileToArray("com\\sumkor\\array\\_0121_stock\\input.txt");
 
-        String fileToString = FileUtils.readFileToString(file, "UTF8");
-//        System.out.println("fileToString = " + fileToString);
-        String[] split = fileToString.split(",");
-        int[] prices = new int[split.length];
-        for (int i = 0; i < split.length; i++) {
-            prices[i] = Integer.parseInt(split[i]);
-        }
         long start = System.currentTimeMillis();
         int maxProfit = maxProfit(prices);
         System.out.println("ms:" + (System.currentTimeMillis() - start));
