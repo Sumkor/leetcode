@@ -38,7 +38,7 @@ public class Solution04 {
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1);
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i; j++) { // j 在 i 之前
                 if (nums[j] < nums[i]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1); // dp[i] 的值代表 nums 前 i 个数字的最长子序列长度
                 }

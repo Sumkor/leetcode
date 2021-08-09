@@ -24,9 +24,9 @@ public class Solution {
         }
         // 利用游标节点，计数
         int count = 1;
-        ListNode nextNode = head.next;
-        while (nextNode != null) {
-            nextNode = nextNode.next;
+        ListNode currNode = head.next;
+        while (currNode != null) {
+            currNode = currNode.next;
             count++;
         }
         // n 合法性校验
@@ -45,16 +45,16 @@ public class Solution {
         int index = count - n;
         // 移除 index 位置的节点
         ListNode prevNode = head;
-        nextNode = head.next;
+        currNode = head.next;
         int i = 1;
-        while (nextNode != null) {
-            // 当前 i 位置是 nextNode，需要移除 nextNode
+        while (currNode != null) {
+            // 当前 i 位置是 currNode，需要移除 currNode
             if (i == index) {
-                prevNode.next = nextNode.next;
+                prevNode.next = currNode.next;
                 break;
             }
-            prevNode = nextNode;
-            nextNode = nextNode.next;
+            prevNode = currNode;
+            currNode = currNode.next;
             i++;
         }
         return head;
@@ -102,7 +102,7 @@ public class Solution {
         ListNode node02 = new ListNode(2, node03);
         ListNode node01 = new ListNode(1, node02);
         ListNode listNode = removeNthFromEnd(node01, 2);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 
     /**
@@ -113,7 +113,7 @@ public class Solution {
     public void test02() {
         ListNode node01 = new ListNode(1);
         ListNode listNode = removeNthFromEnd(node01, 1);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 
     /**
@@ -125,7 +125,7 @@ public class Solution {
         ListNode node02 = new ListNode(2);
         ListNode node01 = new ListNode(1, node02);
         ListNode listNode = removeNthFromEnd(node01, 1);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 
     /**
@@ -137,6 +137,6 @@ public class Solution {
         ListNode node02 = new ListNode(2);
         ListNode node01 = new ListNode(1, node02);
         ListNode listNode = removeNthFromEnd(node01, 2);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 }

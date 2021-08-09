@@ -38,7 +38,7 @@ public class Solution03 {
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1);
         for (int i = nums.length - 1; i >= 0; i--) { // i -> 4,3,2,1,0
-            for (int j = i + 1; j < nums.length; j++) {
+            for (int j = i + 1; j < nums.length; j++) { // j 在 i 之后
                 if (nums[j] > nums[i]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1); // dp[i] 表示数组从 i 位置开始的最长递增子序列长度
                 }

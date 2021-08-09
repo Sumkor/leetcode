@@ -51,6 +51,6 @@ public class Solution02 {
     public void test01() {
         ListNode listNode = ListNode.create(1, 2, 3, 4, 5);
         listNode = removeNthFromEnd(listNode, 2);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 }

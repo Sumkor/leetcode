@@ -10,7 +10,8 @@ import org.junit.Test;
 public class Solution {
 
     /**
-     * 遍历 l2 中的每个节点，插入 l1 链表（优化版）
+     * 以 l1 链表作为结果集（优化版）
+     * 遍历 l2 中的每个节点，插入 l1 链表
      * 由于 l1 和 l2 链表是排过序的，因此可以同时遍历
      *
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00% 的用户
@@ -30,10 +31,10 @@ public class Solution {
                 prevL1 = currL1;
                 currL1 = currL1.next;
             }
-            // 到了这里，说明 currL2.val >= currL1.val，可以插入 currL2 节点
+            // 到了这里，说明 currL2.val <= currL1.val，可以插入 currL2 节点
             newNode.next = currL1;
             prevL1.next = newNode;
-            // 由于在 prevL1 和 currL1 之间插入了 currL2 节点，因此需要修正 currL1
+            // 由于在 prevL1 和 currL1 之间插入了 currL2 节点，因此需要修正 currL1，用于下次遍历
             currL1 = newNode;
             // 遍历 l2 链表的下一个节点
             currL2 = currL2.next;
@@ -42,6 +43,7 @@ public class Solution {
     }
 
     /**
+     * 以 l1 链表作为结果集
      * 遍历 l2 中的每个节点，插入 l1 链表
      *
      * 执行用时：1 ms, 在所有 Java 提交中击败了21.34% 的用户
@@ -72,6 +74,8 @@ public class Solution {
     /**
      * 官方题解
      * https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/he-bing-liang-ge-you-xu-lian-biao-by-leetcode-solu/
+     *
+     * 定义新的头节点 preHead，同时遍历两个链表来构造 preHead 为起始的链表
      *
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00% 的用户
      * 内存消耗：37.9 MB, 在所有 Java 提交中击败了40.30% 的用户
@@ -105,15 +109,9 @@ public class Solution {
 
     @Test
     public void test() {
-        ListNode L1_3 = new ListNode(4);
-        ListNode l1_2 = new ListNode(2, L1_3);
-        ListNode l1_1 = new ListNode(1, l1_2);
-
-        ListNode L2_3 = new ListNode(4);
-        ListNode l2_2 = new ListNode(3, L2_3);
-        ListNode l2_1 = new ListNode(1, l2_2);
-
-        ListNode listNode = mergeTwoLists(l1_1, l2_1);
-        System.out.println(ListNode.print(listNode));
+        ListNode l1 = ListNode.create(1, 2, 4);
+        ListNode l2 = ListNode.create(1, 3, 4);
+        ListNode listNode = mergeTwoLists(l1, l2);
+        ListNode.print(listNode);
     }
 }

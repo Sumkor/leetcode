@@ -25,6 +25,7 @@ public class Solution {
         if (head == null) {
             return false;
         }
+        // 起点不同，为了满足 while 循环
         ListNode low = head;
         ListNode fast = head.next;
         while (fast != null) {

@@ -106,16 +106,11 @@ public class Solution {
      */
     @Test
     public void test() {
-        ListNode l1_3 = new ListNode(3);
-        ListNode l1_2 = new ListNode(4, l1_3);
-        ListNode l1_1 = new ListNode(2, l1_2);
+        ListNode l1 = ListNode.create(2, 4, 3);
+        ListNode l2 = ListNode.create(5, 6, 4);
 
-        ListNode l2_3 = new ListNode(4);
-        ListNode l2_2 = new ListNode(6, l2_3);
-        ListNode l2_1 = new ListNode(5, l2_2);
-
-        ListNode listNode = addTwoNumbers(l1_1, l2_1);
-        System.out.println(ListNode.print(listNode));
+        ListNode listNode = addTwoNumbers(l1, l2);
+        ListNode.print(listNode);
     }
 
     @Test
@@ -124,7 +119,7 @@ public class Solution {
         ListNode l2_1 = new ListNode(0);
 
         ListNode listNode = addTwoNumbers(l1_1, l2_1);
-        System.out.println(ListNode.print(listNode));
+        ListNode.print(listNode);
     }
 
     /**
@@ -132,20 +127,10 @@ public class Solution {
      */
     @Test
     public void test3() {
-        ListNode l1_7 = new ListNode(9);
-        ListNode l1_6 = new ListNode(9, l1_7);
-        ListNode l1_5 = new ListNode(9, l1_6);
-        ListNode l1_4 = new ListNode(9, l1_5);
-        ListNode l1_3 = new ListNode(9, l1_4);
-        ListNode l1_2 = new ListNode(9, l1_3);
-        ListNode l1_1 = new ListNode(9, l1_2);
+        ListNode l1 = ListNode.create(9, 9, 9, 9, 9, 9, 9);
+        ListNode l2 = ListNode.create(9, 9, 9, 9, 9);
 
-        ListNode l2_4 = new ListNode(9);
-        ListNode l2_3 = new ListNode(9, l2_4);
-        ListNode l2_2 = new ListNode(9, l2_3);
-        ListNode l2_1 = new ListNode(9, l2_2);
-
-        ListNode listNode = addTwoNumbers(l1_1, l2_1);
-        System.out.println(ListNode.print(listNode));
+        ListNode listNode = addTwoNumbers(l1, l2);
+        ListNode.print(listNode);
     }
 }

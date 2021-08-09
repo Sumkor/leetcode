@@ -26,9 +26,10 @@ public class ListNode {
     /**
      * 打印链表
      */
-    public static String print(ListNode node) {
+    public static void print(ListNode node) {
         if (node == null) {
-            return "[]";
+            System.out.println("[]");
+            return;
         }
         StringBuilder result = new StringBuilder("[" + node.val);
         // 游标节点
@@ -37,7 +38,7 @@ public class ListNode {
             result.append(",").append(curr.val);
             curr = curr.next;
         }
-        return result + "]";
+        System.out.println(result + "]");
     }
 
     /**
@@ -55,7 +56,6 @@ public class ListNode {
 
     public static void main(String[] args) {
         ListNode listNode = create(1, 2, 3, 4);
-        String print = print(listNode);
-        System.out.println("print = " + print);
+        print(listNode);
     }
 }
