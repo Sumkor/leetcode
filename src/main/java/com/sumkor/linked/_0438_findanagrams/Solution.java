@@ -1,9 +1,9 @@
 package com.sumkor.linked._0438_findanagrams;
 
-import com.sumkor.FileHelper;
-import org.junit.Test;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author Sumkor
@@ -61,57 +61,4 @@ public class Solution {
         return result;
     }
 
-
-    /**
-     * 输入: s: "cbaebabacd" p: "abc"
-     * 输出: [0, 6]
-     */
-    @Test
-    public void test() {
-        String s = "cbaebabacd";
-        String p = "abc";
-
-        List<Integer> list = findAnagrams(s, p);
-        System.out.println("list = " + list);
-    }
-
-    /**
-     * 输入: s: "abab" p: "ab"
-     * 输出: [0, 1, 2]
-     */
-    @Test
-    public void test02() {
-        String s = "abab";
-        String p = "ab";
-
-        List<Integer> list = findAnagrams(s, p);
-        System.out.println("list = " + list);
-    }
-
-    /**
-     * 输入: "ababababab" "aab"
-     * 输出: [0,2,4,6]
-     */
-    @Test
-    public void test03() {
-        String s = "ababababab";
-        String p = "aab";
-
-        List<Integer> list = findAnagrams(s, p);
-        System.out.println("list = " + list);
-    }
-
-    @Test
-    public void testLong() {
-        String s = FileHelper.readFileToString("com\\sumkor\\linked\\_0438_findanagrams\\inputS.txt");
-        String p = FileHelper.readFileToString("com\\sumkor\\linked\\_0438_findanagrams\\inputP.txt");
-
-        System.out.println("s.length() = " + s.length());
-        System.out.println("p.length() = " + p.length());
-
-        long start = System.currentTimeMillis();
-        List<Integer> list = findAnagrams(s, p);
-        System.out.println("ms:" + (System.currentTimeMillis() - start));
-        System.out.println("list = " + list);
-    }
 }
