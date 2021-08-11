@@ -5,13 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 对子串的字符进行排序，再进行对比
+ *
  * @author Sumkor
  * @since 2021/8/10
  */
 public class Solution02 {
 
     /**
-     * 滑动窗口 + 排序 (优化版，减少对子串的排序)
+     * 滑动窗口 + 排序 (优化版)
+     *
+     * 通过记录上一次遍历的对比结果（ s 子串是否与 p 串相等），以此减少对子串的排序
      *
      * 执行用时：1006 ms, 在所有 Java 提交中击败了7.59% 的用户
      * 内存消耗：39.6 MB, 在所有 Java 提交中击败了34.83% 的用户

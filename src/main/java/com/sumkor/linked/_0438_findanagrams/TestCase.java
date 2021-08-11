@@ -19,10 +19,12 @@ public class TestCase {
 
     @Before
     public void init() throws Exception {
-//        Class<Solution> clazz = Solution.class;
-        Class<Solution02> clazz = Solution02.class;
+        Class<Solution> clazz = Solution.class;
+//        Class<Solution02> clazz = Solution02.class;
         instance = clazz.newInstance();
         method = clazz.getDeclaredMethod("findAnagrams", String.class, String.class);
+//        method = clazz.getDeclaredMethod("findAnagrams1", String.class, String.class);
+//        method = clazz.getDeclaredMethod("findAnagrams2", String.class, String.class);
         method.setAccessible(true);
     }
     
@@ -80,6 +82,6 @@ public class TestCase {
         long start = System.currentTimeMillis();
         List<Integer> list = (List<Integer>) method.invoke(instance, s, p);
         System.out.println("ms:" + (System.currentTimeMillis() - start));
-        System.out.println("list = " + list);
+//        System.out.println("list = " + list);
     }
 }

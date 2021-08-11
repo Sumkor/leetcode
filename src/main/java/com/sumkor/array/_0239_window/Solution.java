@@ -22,7 +22,7 @@ public class Solution {
         int n = nums.length;
         int capacity = n - k + 1;
         int[] result = new int[capacity];
-        // 缓存：key=数字，value=下标
+        // 缓存：key=数字，value=最新下标
         Map<Integer, Integer> map = new HashMap<>();
         // 当 i = 0 时，构造窗口
         int max = nums[0];
