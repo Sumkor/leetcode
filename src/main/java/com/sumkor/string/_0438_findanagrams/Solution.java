@@ -1,4 +1,4 @@
-package com.sumkor.linked._0438_findanagrams;
+package com.sumkor.string._0438_findanagrams;
 
 import java.util.ArrayList;
 import java.util.Arrays;

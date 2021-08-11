@@ -1,4 +1,4 @@
-package com.sumkor.linked._0438_findanagrams;
+package com.sumkor.string._0438_findanagrams;
 
 import com.sumkor.FileHelper;
 import org.junit.Before;
@@ -73,8 +73,8 @@ public class TestCase {
     @Test
     @SuppressWarnings("unchecked")
     public void testLong() throws InvocationTargetException, IllegalAccessException {
-        String s = FileHelper.readFileToString("com\\sumkor\\linked\\_0438_findanagrams\\inputS.txt");
-        String p = FileHelper.readFileToString("com\\sumkor\\linked\\_0438_findanagrams\\inputP.txt");
+        String s = FileHelper.readFileToString("com\\sumkor\\string\\_0438_findanagrams\\inputS.txt");
+        String p = FileHelper.readFileToString("com\\sumkor\\string\\_0438_findanagrams\\inputP.txt");
 
         System.out.println("s.length() = " + s.length());
         System.out.println("p.length() = " + p.length());
