@@ -29,6 +29,7 @@
 ## 动态规划
 
 - [0005. Longest Palindromic Substring](src/main/java/com/sumkor/string/_0005_longestpalindrome/Solution03.java) (Medium)
+- [0070. Climbing Stairs](src/main/java/com/sumkor/dp/_0070_climbstairs/Solution.java) (Easy)
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution02.java) (Easy)
 - [0123. Best Time to Buy and Sell Stock III](src/main/java/com/sumkor/array/_0123_stock/Solution.java) (Hard)
 - [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/array/_0300_longestincreasingsubseq/Solution03.java) (Medium)
