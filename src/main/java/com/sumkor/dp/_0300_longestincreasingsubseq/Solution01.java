@@ -28,7 +28,9 @@ public class Solution01 {
         return maxLength;
     }
 
-    // 定义函数，可返回数组 i 位置的最长递增子序列长度
+    /**
+     * 定义函数，可返回数组 i 位置开始的最长递增子序列长度
+     */
     private int exec(int[] nums, int i) {
         // 如果 i 是最后一个数字，直接返回
         if (i == nums.length - 1) {

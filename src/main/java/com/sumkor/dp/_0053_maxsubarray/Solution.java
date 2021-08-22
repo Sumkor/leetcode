@@ -11,7 +11,11 @@ public class Solution {
     /**
      * dp[i] 表示以 nums[i] 结尾的连续子数组的最大和
      *
-     * 状态转移方程：dp[i] = max{dp[i], dp[i-1] + nums[i]}
+     * 状态转移方程：
+     * dp[i] = max{dp[i], dp[i-1] + nums[i]}
+     *
+     * 图文说明：
+     * https://www.geekxh.com/1.2.动态规划系列/202.html
      *
      * 执行用时：1 ms, 在所有 Java 提交中击败了92.52% 的用户
      * 内存消耗：38.3 MB, 在所有 Java 提交中击败了72.41% 的用户

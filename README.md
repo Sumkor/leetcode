@@ -45,16 +45,17 @@
 
 ## 字符串
 
--[0006. ZigZag Conversion](src/main/java/com/sumkor/string/_0006_zconvert/Solution02.java) (Medium)
--[0014. Longest Common Prefix](src/main/java/com/sumkor/string/_0014_longestcommonprefix/Solution.java) (Easy)
--[0028. Implement strStr()](src/main/java/com/sumkor/string/_0028_strstr/Solution03.java) (Easy)
--[0058. Length of Last Word](src/main/java/com/sumkor/string/_0058_lengthoflastword/Solution.java) (Easy)
+- [0006. ZigZag Conversion](src/main/java/com/sumkor/string/_0006_zconvert/Solution02.java) (Medium)
+- [0014. Longest Common Prefix](src/main/java/com/sumkor/string/_0014_longestcommonprefix/Solution.java) (Easy)
+- [0028. Implement strStr()](src/main/java/com/sumkor/string/_0028_strstr/Solution03.java) (Easy)
+- [0058. Length of Last Word](src/main/java/com/sumkor/string/_0058_lengthoflastword/Solution.java) (Easy)
 
 ## 动态规划
 
 - [0005. Longest Palindromic Substring](src/main/java/com/sumkor/string/_0005_longestpalindrome/Solution03.java) (Medium)
 - [0053. Maximum Subarray](src/main/java/com/sumkor/dp/_0053_maxsubarray/Solution.java) (Easy)
 - [0070. Climbing Stairs](src/main/java/com/sumkor/dp/_0070_climbstairs/Solution.java) (Easy)
+- [0120. Triangle](src/main/java/com/sumkor/dp/_0120_triangle/Solution03.java) (Medium)
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution02.java) (Easy)
 - [0123. Best Time to Buy and Sell Stock III](src/main/java/com/sumkor/array/_0123_stock/Solution.java) (Hard)
 - [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/dp/_0300_longestincreasingsubseq/Solution03.java) (Medium)
