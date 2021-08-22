@@ -2,11 +2,22 @@
 
 解法汇总（个人解答+官方题解）
 
+## 数组
+
+- [0026. Remove Duplicates from Sorted Array](src/main/java/com/sumkor/array/_0026_remove/Solution.java) (Easy)
+- [0027. Remove Element](src/main/java/com/sumkor/array/_0027_remove/Solution02.java) (Easy)
+- [0066. Plus One](src/main/java/com/sumkor/array/_0066_plusone/Solution.java) (Easy)
+- [0121. Best Time to Buy and Sell Stock](src/main/java/com/sumkor/array/_0121_stock/Solution.java) (Easy)
+- [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution.java) (Easy)
+- [0189. Rotate Array](src/main/java/com/sumkor/array/_0189_rotate/Solution02.java) (Medium)
+- [0189. Rotate Array](src/main/java/com/sumkor/array/_0189_rotate/Solution03.java) (Medium)
+
 ## 双指针
 
 - [0015. Three Sum](src/main/java/com/sumkor/array/_0015_threesum/Solution03.java) (Medium)
 - [0019. Remove Nth Node From End of List](src/main/java/com/sumkor/linked/_0019_removefromend/Solution02.java) (Medium)
 - [0141. Linked List Cycle](src/main/java/com/sumkor/linked/_0141_hascycle/Solution.java) (Easy)
+- [0344. Reverse String](src/main/java/com/sumkor/string/_0344_reverse/Solution.java) (Easy)
 - [0350. Intersection of Two Arrays II](src/main/java/com/sumkor/array/_0350_intersect/Solution02.java) (Easy)
 
 ## 滑动窗口
@@ -26,12 +37,26 @@
 - [0350. Intersection of Two Arrays II](src/main/java/com/sumkor/array/_0350_intersect/Solution01.java) (Easy)
 - [0387. First Unique Character in a String](src/main/java/com/sumkor/string/_0387_firstuniqe/Solution.java) (Easy)
 
+## 链表
+
+- [0002. Add Two Numbers](src/main/java/com/sumkor/linked/_0002_addtwonumbers/Solution.java) (Medium)
+- [0019. Remove Nth Node From End of List](src/main/java/com/sumkor/linked/_0019_removefromend/Solution.java) (Medium)
+- [0021. Merge Two Sorted Lists](src/main/java/com/sumkor/linked/_0021_mergetwolists/Solution.java) (Easy)
+
+## 字符串
+
+-[0006. ZigZag Conversion](src/main/java/com/sumkor/string/_0006_zconvert/Solution02.java) (Medium)
+-[0014. Longest Common Prefix](src/main/java/com/sumkor/string/_0014_longestcommonprefix/Solution.java) (Easy)
+-[0028. Implement strStr()](src/main/java/com/sumkor/string/_0028_strstr/Solution03.java) (Easy)
+-[0058. Length of Last Word](src/main/java/com/sumkor/string/_0058_lengthoflastword/Solution.java) (Easy)
+
 ## 动态规划
 
 - [0005. Longest Palindromic Substring](src/main/java/com/sumkor/string/_0005_longestpalindrome/Solution03.java) (Medium)
+- [0053. Maximum Subarray](src/main/java/com/sumkor/dp/_0053_maxsubarray/Solution.java) (Easy)
 - [0070. Climbing Stairs](src/main/java/com/sumkor/dp/_0070_climbstairs/Solution.java) (Easy)
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution02.java) (Easy)
 - [0123. Best Time to Buy and Sell Stock III](src/main/java/com/sumkor/array/_0123_stock/Solution.java) (Hard)
-- [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/array/_0300_longestincreasingsubseq/Solution03.java) (Medium)
-- [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/array/_0300_longestincreasingsubseq/Solution04.java) (Medium)
+- [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/dp/_0300_longestincreasingsubseq/Solution03.java) (Medium)
+- [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/dp/_0300_longestincreasingsubseq/Solution04.java) (Medium)
 
