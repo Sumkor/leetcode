@@ -14,6 +14,9 @@ public class Solution02 {
      * 执行用时：2 ms, 在所有 Java 提交中击败了95.03% 的用户
      * 内存消耗：38.6 MB, 在所有 Java 提交中击败了36.68% 的用户
      *
+     * 时间复杂度：O(N^2)，NNN 为三角形的行数。
+     * 空间复杂度：O(N^2)，NNN 为三角形的行数。
+     *
      * {@link TestCase#testLong()} 耗时 12 ms
      */
     public int minimumTotal(List<List<Integer>> triangle) {
