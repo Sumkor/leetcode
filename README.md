@@ -16,6 +16,7 @@
 
 - [0015. Three Sum](src/main/java/com/sumkor/array/_0015_threesum/Solution03.java) (Medium)
 - [0019. Remove Nth Node From End of List](src/main/java/com/sumkor/linked/_0019_removefromend/Solution02.java) (Medium)
+- [0042. Trapping Rain Water](src/main/java/com/sumkor/array/_0042_rainwater/Solution03.java) (Hard)
 - [0141. Linked List Cycle](src/main/java/com/sumkor/linked/_0141_hascycle/Solution.java) (Easy)
 - [0344. Reverse String](src/main/java/com/sumkor/string/_0344_reverse/Solution.java) (Easy)
 - [0350. Intersection of Two Arrays II](src/main/java/com/sumkor/array/_0350_intersect/Solution02.java) (Easy)
@@ -60,6 +61,11 @@
 - [0120. Triangle](src/main/java/com/sumkor/dp/_0120_triangle/Solution03.java) (Medium)
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution02.java) (Easy)
 - [0123. Best Time to Buy and Sell Stock III](src/main/java/com/sumkor/array/_0123_stock/Solution.java) (Hard)
+- [0198. House Robber](src/main/java/com/sumkor/dp/_0198_robhouse/Solution.java) (Medium)
 - [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/dp/_0300_longestincreasingsubseq/Solution03.java) (Medium)
 - [0300. Longest Increasing Subsequence](src/main/java/com/sumkor/dp/_0300_longestincreasingsubseq/Solution04.java) (Medium)
 
+## 二叉树
+
+- [0102. Binary Tree Level Order Traversal](src/main/java/com/sumkor/tree/_0102_levelorder/Solution.java) (Medium)
+- [0104. Maximum Depth of Binary Tree](src/main/java/com/sumkor/tree/_0104_maxdepth/Solution.java) (Easy)
