@@ -3,7 +3,6 @@ package com.sumkor.backtrack._0077_combine;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,7 +12,8 @@ import java.util.List;
 public class Solution {
 
     /**
-     * 暴力法
+     * 回溯法
+     * 从 [1,n] 选一个数 i，再从 [i+1,n] 选一个数 j 这样一层层下去
      *
      * 执行用时：41 ms, 在所有 Java 提交中击败了8.01% 的用户
      * 内存消耗：40 MB, 在所有 Java 提交中击败了12.88% 的用户
