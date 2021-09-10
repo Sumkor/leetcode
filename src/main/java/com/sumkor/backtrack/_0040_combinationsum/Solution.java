@@ -10,33 +10,64 @@ import java.util.*;
  */
 public class Solution {
 
+    /**
+     * 回溯法
+     *
+     * 总体思想：
+     * 1. 在选择了 i 位置的前提下，进入递归，从当前 i+1 位置开始选择，直到达到或超过 target 值
+     * 2. 撤销 i 位置的选择，进入下一次循环，选择 i+1
+     *
+     * 剪枝：
+     * 1. 先进行排序，在递归选择过程中，如果发现当前选择已经满足 target 要求，则不必进入下一次循环，因为下一次循环只会选出超过 target 的值！
+     * 2. 由于 candidates 数组中包含重复的元素，需要记录每一个位置是否在 path 已选，避免重复
+     *
+     * 执行用时：1229 ms, 在所有 Java 提交中击败了5.01% 的用户
+     * 内存消耗：38.9 MB, 在所有 Java 提交中击败了8.84% 的用户
+     */
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Set<List<Integer>> ans = new HashSet<>();
         LinkedList<Integer> path = new LinkedList<>();
+        // 排序，用于剪枝
         Arrays.sort(candidates);
-        recur(candidates, target, 0, 0, path, ans);
+        // 数组，记录当前位是否已选
+        boolean[] map = new boolean[candidates.length];
+        recur(candidates, target, 0, 0, map, path, ans);
         return new ArrayList<>(ans);
     }
 
-    private void recur(int[] candidates, int target, int index, int sum, LinkedList<Integer> path, Set<List<Integer>> ans) {
+    private boolean recur(int[] candidates, int target, int index, int sum, boolean[] map, LinkedList<Integer> path, Set<List<Integer>> ans) {
         if (sum == target) {
             ans.add(new ArrayList<>(path));
-            return;
+            return true;
         }
         if (sum > target) {
-            return;
+            return true;
         }
         for (int i = index; i < candidates.length; i++) {
+            // 剪枝：上一位没有选择的情况下，当前位与上一位相等，则当前位也不选
+            if (i > 0 && !map[i - 1] && candidates[i] == candidates[i - 1]) {
+                continue;
+            }
+            // 做出选择
             path.add(candidates[i]);
             sum += candidates[i];
+            map[i] = true;
             // System.out.println("递归前 》 " + path);
 
-            recur(candidates, target, i + 1, sum, path, ans);
+            // 进入递归
+            boolean next = recur(candidates, target, i + 1, sum, map, path, ans);
+            if (next) {
+                // 剪枝：当前选择已经到头了，不必进入下一次循环
+                i = candidates.length - 1;
+            }
 
+            // 撤销选择
             path.removeLast();
             sum = sum - candidates[i];
+            map[i] = false;
             // System.out.println("递归后 》 " + path);
         }
+        return false;
     }
 
     /**
@@ -51,9 +82,9 @@ public class Solution {
      */
     @Test
     public void test() {
-//        int[] candidates = new int[]{10, 1, 2, 7, 6, 1, 5}; int target = 8;
+        int[] candidates = new int[]{10, 1, 2, 7, 6, 1, 5}; int target = 8;
 //        int[] candidates = new int[]{2, 5, 2, 1, 2}; int target = 5;
-        int[] candidates = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; int target = 30;
+//        int[] candidates = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; int target = 30;
 
         long start = System.currentTimeMillis();
         List<List<Integer>> lists = combinationSum2(candidates, target);
