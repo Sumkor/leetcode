@@ -21,8 +21,8 @@ public class Solution {
      * 1. 先进行排序，在递归选择过程中，如果发现当前选择已经满足 target 要求，则不必进入下一次循环，因为下一次循环只会选出超过 target 的值！
      * 2. 由于 candidates 数组中包含重复的元素，需要记录每一个位置是否在 path 已选，避免重复
      *
-     * 执行用时：1229 ms, 在所有 Java 提交中击败了5.01% 的用户
-     * 内存消耗：38.9 MB, 在所有 Java 提交中击败了8.84% 的用户
+     * 执行用时：4 ms, 在所有 Java 提交中击败了40.00% 的用户
+     * 内存消耗：38.1 MB, 在所有 Java 提交中击败了99.17% 的用户
      */
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Set<List<Integer>> ans = new HashSet<>();
@@ -44,7 +44,7 @@ public class Solution {
             return true;
         }
         for (int i = index; i < candidates.length; i++) {
-            // 剪枝：上一位没有选择的情况下，当前位与上一位相等，则当前位也不选
+            // 剪枝：由于数组中包含重复元素，上一位没有选择的情况下，当前位与上一位相等，则当前位也不选
             if (i > 0 && !map[i - 1] && candidates[i] == candidates[i - 1]) {
                 continue;
             }
@@ -54,9 +54,11 @@ public class Solution {
             map[i] = true;
             // System.out.println("递归前 》 " + path);
 
-            // 进入递归
+            // 进入递归，选择下一位
             boolean next = recur(candidates, target, i + 1, sum, map, path, ans);
             if (next) {
+                // 注意这里需要回溯 path、map[]、sum，但是对 sum 的回溯错误并不要紧，因为不会进入下一次循环了
+                System.arraycopy(new boolean[candidates.length], i, map, i, candidates.length - i);
                 // 剪枝：当前选择已经到头了，不必进入下一次循环
                 i = candidates.length - 1;
             }
@@ -82,9 +84,9 @@ public class Solution {
      */
     @Test
     public void test() {
-        int[] candidates = new int[]{10, 1, 2, 7, 6, 1, 5}; int target = 8;
+//        int[] candidates = new int[]{10, 1, 2, 7, 6, 1, 5}; int target = 8;
 //        int[] candidates = new int[]{2, 5, 2, 1, 2}; int target = 5;
-//        int[] candidates = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; int target = 30;
+        int[] candidates = new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}; int target = 30;
 
         long start = System.currentTimeMillis();
         List<List<Integer>> lists = combinationSum2(candidates, target);

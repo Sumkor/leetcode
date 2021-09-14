@@ -2,10 +2,7 @@ package com.sumkor.backtrack._0077_combine;
 
 import org.junit.Test;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Sumkor
@@ -37,7 +34,7 @@ public class Solution02 {
         if (k <= 0 || n < k) {
             return res;
         }
-        Deque<Integer> path = new ArrayDeque<>(k);
+        Deque<Integer> path = new LinkedList<>();
         // 从 1 开始是题目的设定
         dfs(n, k, 1, path, res);
         return res;
@@ -58,8 +55,10 @@ public class Solution02 {
             // 向路径变量里添加一个数
             path.addLast(i);
             // System.out.println("递归之前 => " + path);
+
             // 下一轮搜索，设置的搜索起点要加 1，因为组合数理不允许出现重复的元素
             dfs(n, k, i + 1, path, res);
+
             // 重点理解这里：深度优先遍历有回头的过程，因此递归之前做了什么，递归之后需要做相同操作的逆向操作
             path.removeLast();
             // System.out.println("递归之后 => " + path);

@@ -73,7 +73,7 @@
 ## 回溯法
 
 - [0039. Combination Sum](src/main/java/com/sumkor/backtrack/_0039_combinationsum/Solution02.java) (Medium)
-- [0040. Combination Sum II]() (Medium)
+- [0040. Combination Sum II](src/main/java/com/sumkor/backtrack/_0040_combinationsum/Solution.java) (Medium)
 - [0046. Permutations](src/main/java/com/sumkor/backtrack/_0046_permute/Solution02.java) (Medium)
 - [0047. Permutations II](src/main/java/com/sumkor/backtrack/_0047_permute/Solution03.java) (Medium)
 - [0077. Combinations](src/main/java/com/sumkor/backtrack/_0077_combine/Solution02.java) (Medium)

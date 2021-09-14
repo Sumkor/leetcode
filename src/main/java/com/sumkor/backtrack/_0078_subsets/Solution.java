@@ -64,7 +64,7 @@ public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> results = new ArrayList<>();
         List<Integer> combine = new ArrayList<>();
-        backtrack(nums, results, combine, 0);
+        backtrack(nums, 0, combine, results);
         return results;
     }
 
@@ -73,11 +73,11 @@ public class Solution {
      * 2. 进入递归：子集问题的选择列表，是上一条选择路径之后的数
      * 3. 撤销选择：combine 列表中去掉当前选择的 idx 位置的数值，便于进入下一次循环
      */
-    private void backtrack(int[] nums, List<List<Integer>> results, List<Integer> combine, int idx) {
+    private void backtrack(int[] nums, int idx, List<Integer> combine, List<List<Integer>> results) {
         results.add(new ArrayList<>(combine)); // 这里必须用新对象包装
         for (int i = idx; i < nums.length; i++) {
             combine.add(nums[i]);
-            backtrack(nums, results, combine, i + 1);
+            backtrack(nums, i + 1, combine, results);
             combine.remove(combine.size() - 1);
         }
     }

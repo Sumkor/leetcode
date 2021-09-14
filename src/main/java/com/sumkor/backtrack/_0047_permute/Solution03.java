@@ -36,7 +36,7 @@ public class Solution03 {
         }
         for (int i = 0; i < nums.length; i++) {
             if (!map[i]) {
-                // 剪枝：上一个节点未选择，并且当前节点与上一个节点相同
+                // 剪枝：由于数组中包含重复元素，上一位没有选择的情况下，当前位与上一位相等，则当前位也不选
                 if (i > 0 && !map[i - 1] && nums[i] == nums[i - 1]) {
                     continue;
                 }
