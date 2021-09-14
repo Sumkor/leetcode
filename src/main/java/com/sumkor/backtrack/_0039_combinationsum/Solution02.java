@@ -18,8 +18,8 @@ public class Solution02 {
      *
      * 总体思想：在选择了 i 位置的前提下，进入递归，依旧从当前 i 位置开始选择，直到达到或超过 target 值
      *
-     * 执行用时：2 ms, 在所有 Java 提交中击败了99.78% 的用户
-     * 内存消耗：38.5 MB, 在所有 Java 提交中击败了71.15% 的用户
+     * 执行用时：2 ms, 在所有 Java 提交中击败了99.77% 的用户
+     * 内存消耗：38.4 MB, 在所有 Java 提交中击败了86.38% 的用户
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -46,20 +46,21 @@ public class Solution02 {
             // 1. 做出选择
             path.add(candidates[i]);
             sum += candidates[i];
-            System.out.println("递归前 》 " + path);
+            // System.out.println("递归前 》 " + path);
 
             // 2. 进入递归：在选择当前 i 位置的前提下，下一次还是从 i 位置开始选择
             boolean result = recur(candidates, target, i, sum, path, ans);
-            if (result) {
-                // 在前几次选择的基础上，如果当前选择的 i 已经到头了，那么没有必要进入下一次循环选择 i + 1 了
-                i = candidates.length - 1;
-                // 但是，这里还是需要进行撤销选择！把 path 复原到选择当前 i 之前，注意这里对 sum 的回溯错误并不要紧，因为不会进入下一次循环了
-            }
 
             // 3. 撤销选择
             path.removeLast();
             sum = sum - candidates[i];
-            System.out.println("递归后 》 " + path);
+            // System.out.println("递归后 》 " + path);
+
+            // 剪枝：在前几次选择的基础上，如果当前选择的 i 已经到头了，那么没有必要进入下一次循环选择 i + 1 了
+            // 注意，必须先撤销选择，把 path 复原到选择当前 i 之前，再进行此处剪枝！
+            if (result) {
+                i = candidates.length;
+            }
         }
         return false;
     }
