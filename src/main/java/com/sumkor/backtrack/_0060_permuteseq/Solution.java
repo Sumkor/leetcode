@@ -36,7 +36,7 @@ public class Solution {
 
     private int count;
 
-    private void recur(int n,boolean[] map, LinkedList<Integer> path, List<List<Integer>> res) {
+    private void recur(int n, boolean[] map, LinkedList<Integer> path, List<List<Integer>> res) {
         if (count == 0) {
             return;
         }
