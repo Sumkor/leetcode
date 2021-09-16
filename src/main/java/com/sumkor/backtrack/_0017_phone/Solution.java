@@ -11,10 +11,10 @@ import java.util.*;
 public class Solution {
 
     /**
-     * 回溯算法，思路与官方题解一致，写法导致多耗时 1 ms
+     * 回溯算法，思路与官方题解一致
      *
-     * 执行用时：1 ms, 在所有 Java 提交中击败了68.16% 的用户
-     * 内存消耗：37.1 MB, 在所有 Java 提交中击败了54.73% 的用户
+     * 执行用时：0 ms, 在所有 Java 提交中击败了100.00% 的用户
+     * 内存消耗：37.2 MB, 在所有 Java 提交中击败了48.53% 的用户
      */
     public List<String> letterCombinations(String digits) {
         List<String> ans = new ArrayList<>();
@@ -41,8 +41,9 @@ public class Solution {
             path.append(letters[i]);
             // 进入递归
             dfs(digits, n, index + 1, path, ans);
-            // 撤销选择
-            path.delete(path.length() - 1, path.length());
+            // 撤销选择（这一步写法的优化，可以节省1ms）
+            // path.delete(path.length() - 1, path.length());
+            path.delete(index, index + 1);
         }
     }
 
