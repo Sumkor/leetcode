@@ -70,6 +70,8 @@
 - [0102. Binary Tree Level Order Traversal](src/main/java/com/sumkor/tree/_0102_levelorder/Solution.java) (Medium)
 - [0104. Maximum Depth of Binary Tree](src/main/java/com/sumkor/tree/_0104_maxdepth/Solution.java) (Easy)
 
+- [0098. Validate Binary Search Tree](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Medium)
+
 ## 回溯法
 
 - [0039. Combination Sum](src/main/java/com/sumkor/backtrack/_0039_combinationsum/Solution02.java) (Medium)

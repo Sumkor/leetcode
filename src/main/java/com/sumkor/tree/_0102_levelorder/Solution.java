@@ -12,6 +12,8 @@ import java.util.*;
 public class Solution {
 
     /**
+     * 广度优先算法
+     *
      * 使用 list 集合，记录每一层的根节点。
      * 每次遍历的时候，取其左右子节点，作为下一次遍历的根节点。
      *
