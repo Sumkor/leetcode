@@ -67,6 +67,7 @@
 
 ## 二叉树
 
+- [0094. Binary Tree Inorder Traversal](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Easy)
 - [0102. Binary Tree Level Order Traversal](src/main/java/com/sumkor/tree/_0102_levelorder/Solution.java) (Medium)
 - [0104. Maximum Depth of Binary Tree](src/main/java/com/sumkor/tree/_0104_maxdepth/Solution.java) (Easy)
 

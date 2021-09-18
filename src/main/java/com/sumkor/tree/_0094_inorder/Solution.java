@@ -78,9 +78,9 @@ public class Solution {
      */
     @Test
     public void test() {
-        TreeNode treeNode = TreeNode.create(1, null, 2, null, null, 3);
-//        TreeNode treeNode = TreeNode.create(1, 2);
-//        TreeNode treeNode = TreeNode.create(3, 1, 2);
+//        TreeNode treeNode = TreeNode.create2(1, null, 2, 3);
+//        TreeNode treeNode = TreeNode.create2(1, 2);
+        TreeNode treeNode = TreeNode.create2(3, 1, 2);
         List<Integer> results = inorderTraversal(treeNode);
         System.out.println("results = " + results);
     }

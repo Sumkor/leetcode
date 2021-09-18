@@ -1,5 +1,7 @@
 package com.sumkor.tree;
 
+import java.util.LinkedList;
+
 /**
  * Definition for a binary tree node.
  *
@@ -35,6 +37,14 @@ public class TreeNode {
      *   9  20     第1层 -> 2^1=2
      *     /  \
      *    15   7   第2层 -> 2^2=4
+     *
+     * 此外，对于以下树结构，支持入参 [1,null,2,null,null,3]，不支持入参 [1,null,2,3]
+     *
+     *     1
+     *      \
+     *       2
+     *      /
+     *     3
      */
     public static TreeNode create(Integer... list) {
         if (list == null) return null;
@@ -83,10 +93,60 @@ public class TreeNode {
         return root;
     }
 
+    /**
+     * 创建二叉树
+     *
+     * [3,9,20,null,null,15,7]
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     *
+     * 此外，对于以下树结构，支持入参 [1,null,2,3]，不支持入参 [1,null,2,null,null,3]
+     *
+     *     1
+     *      \
+     *       2
+     *      /
+     *     3
+     */
+    public static TreeNode create2(Integer... list) {
+        if (list == null) return null;
+        TreeNode root = new TreeNode(list[0]);
+        var rootDeque = new LinkedList<TreeNode>();
+        var leafDeque = new LinkedList<TreeNode>();
+        rootDeque.addLast(root);
+        int i = 1;
+        while (i < list.length) {
+            TreeNode treeNode = rootDeque.removeFirst();
+            if (list[i] != null) {
+                treeNode.left = new TreeNode(list[i]);
+                leafDeque.addLast(treeNode.left);
+            }
+            i += 1;
+            if (i == list.length) {
+                break;
+            }
+            if (list[i] != null) {
+                treeNode.right = new TreeNode(list[i]);
+                leafDeque.addLast(treeNode.right);
+            }
+            i += 1;
+            if (rootDeque.isEmpty()) {
+                rootDeque = leafDeque;
+                leafDeque = new LinkedList<>();
+            }
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
 //        TreeNode treeNode = TreeNode.create(3);
-        TreeNode treeNode = create(3, 9, 20, null, null, 15, 7);
-//        TreeNode treeNode = create(3, 9, 20, null, null, 15, 7, null, null, null, null, 11, null, null, 4);
+//        TreeNode treeNode = create2(3, 9, 20, null, null, 15, 7);
+//        TreeNode treeNode = create2(3, 9, 20, null, null, 15, 7, 11, null, null, 4);
+        TreeNode treeNode = create2(1, null, 2, 3);
         System.out.println("treeNode = " + treeNode);
     }
 }
