@@ -72,6 +72,7 @@
 - [0104. Maximum Depth of Binary Tree](src/main/java/com/sumkor/tree/_0104_maxdepth/Solution.java) (Easy)
 
 - [0098. Validate Binary Search Tree](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Medium)
+- [0700. Search in a Binary Search Tree](src/main/java/com/sumkor/tree/_0700_searchbst/Solution02.java) (Easy)
 
 ## 回溯法
 
