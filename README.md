@@ -70,6 +70,9 @@
 - [0094. Binary Tree Inorder Traversal](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Easy)
 - [0102. Binary Tree Level Order Traversal](src/main/java/com/sumkor/tree/_0102_levelorder/Solution.java) (Medium)
 - [0104. Maximum Depth of Binary Tree](src/main/java/com/sumkor/tree/_0104_maxdepth/Solution.java) (Easy)
+- [0110. Balanced Binary Tree](src/main/java/com/sumkor/tree/_0110_balance/Solution02.java) (Easy)
+- [0222. Count Complete Tree Nodes](src/main/java/com/sumkor/tree/_0222_complete/Solution02.java) (Medium)
+- [0226. Invert Binary Tree](src/main/java/com/sumkor/tree/_0226_invert/Solution.java) (Easy)
 
 - [0098. Validate Binary Search Tree](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Medium)
 - [0700. Search in a Binary Search Tree](src/main/java/com/sumkor/tree/_0700_searchbst/Solution02.java) (Easy)

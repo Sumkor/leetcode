@@ -64,6 +64,22 @@ public class Solution {
     }
 
     /**
+     * 对 inorder0 的改进，实际上就是官方题解的写法
+     */
+    private void inorder1(TreeNode root, List<Integer> ans) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            inorder0(root.left, ans);
+        }
+        ans.add(root.val);
+        if (root.right != null) {
+            inorder0(root.right, ans);
+        }
+    }
+
+    /**
      * 输入：root = [1,null,2,3]
      * 输出：[1,3,2]
      *
