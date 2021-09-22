@@ -21,10 +21,10 @@ public class Solution02 {
         int hi = 1_000_000_000;
         while (lo < hi) {
             int mi = (lo + hi) / 2;
-            if (!possible(piles, H, mi))
-                lo = mi + 1; // 这里说明 mid 不符合条件，那么结果肯定比 mid 更大才对，因此 mid 可以被排除掉
-            else
+            if (possible(piles, H, mi))
                 hi = mi; // 这里说明 mid 符合条件，因此 mid 是可能的结果，无法排除，但是有可能真正的结果比 mid 小
+            else
+                lo = mi + 1; // 这里说明 mid 不符合条件，那么结果肯定比 mid 更大才对，因此 mid 可以被排除掉
         }
         return lo;
     }

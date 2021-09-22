@@ -27,7 +27,7 @@ public class Solution02 {
      * 迭代法（官方题解）
      *
      * 时间复杂度：O(H)，其中 H 是树高。平均时间复杂度为 O(logN)，最坏时间复杂度为 O(N)
-     * 空间复杂度：O(1)\mathcal{O}(1)O(1)，恒定的额外空间
+     * 空间复杂度：O(1)，恒定的额外空间
      */
     public TreeNode searchBST0(TreeNode root, int val) {
         while (root != null && val != root.val)
