@@ -94,5 +94,8 @@
 
 ## 二分法
 
+- [0704. Binary Search](src/main/java/com/sumkor/binarysearch/_0704_search/Solution.java) (Easy)
+
 - [0069. Sqrt(x)](src/main/java/com/sumkor/binarysearch/_0069_sqrtx/Solution.java) (Easy)
+- [0374. Guess Number Higher or Lower](src/main/java/com/sumkor/binarysearch/_0374_guessnum/Solution.java) (Easy)
 - [0875. Koko Eating Bananas](src/main/java/com/sumkor/binarysearch/_0875_banana/Solution02.java) (Medium)
