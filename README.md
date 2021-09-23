@@ -94,4 +94,5 @@
 
 ## 二分法
 
-- [0875. Koko Eating Bananas](src/main/java/com/sumkor/binarysearch/_0875_banana/Solution.java) (Medium)
+- [0069. Sqrt(x)](src/main/java/com/sumkor/binarysearch/_0069_sqrtx/Solution.java) (Easy)
+- [0875. Koko Eating Bananas](src/main/java/com/sumkor/binarysearch/_0875_banana/Solution02.java) (Medium)
