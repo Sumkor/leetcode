@@ -31,25 +31,6 @@ public class Solution02 {
     }
 
     /**
-     * 对暴力法进行剪枝
-     *
-     * 一个重要的发现是，从段内选择一个数，右边区间都比左边区间大。
-     * 所以我们只需要从右边区间获取最大开销即可，因为它的开销肯定比左边区间的要大。
-     */
-    public int calculate(int low, int high) {
-        if (low >= high)
-            return 0;
-        int minResult = Integer.MAX_VALUE;
-        for (int i = (low + high) / 2; i <= high; i++) {
-            // 在一次尝试以后，答案要么在我们猜的数字的左边要么在右边，为了考虑最坏情况，我们需要考虑两者的较大值
-            int res = i + Math.max(calculate(i + 1, high), calculate(low, i - 1));
-            // 遍历每一个 i 作为尝试，求出最小值，即为猜到数字的最小代价
-            minResult = Math.min(res, minResult);
-        }
-        return minResult;
-    }
-
-    /**
      * 暴力法
      *
      * 时间复杂度： O(n!)。我们选择一个数作为第一次尝试，然后递归中再选一个数，这样重复 n 次的时间代价为 O(n!)。
@@ -60,12 +41,34 @@ public class Solution02 {
             return 0;
         int minResult = Integer.MAX_VALUE;
         for (int i = low; i <= high; i++) {
+            // 在一次尝试以后，答案要么在我们猜的数字的左边要么在右边，为了考虑最坏情况，我们需要考虑两者的较大值
             int res = i + Math.max(calculate0(i + 1, high), calculate0(low, i - 1));
+            // 遍历每一个 i 作为尝试，求出最小值，即为猜到数字的最小代价
             minResult = Math.min(res, minResult);
         }
         return minResult;
     }
 
+    /**
+     * 对暴力法进行剪枝
+     *
+     * 一个重要的发现是，从段内选择一个数，右边区间都比左边区间大。
+     * 所以我们只需要从右边区间获取最大开销即可，因为它的开销肯定比左边区间的要大。
+     *
+     * 时间复杂度： O(n!)。我们选择一个数作为第一次尝试，然后递归中再选一个数，这样重复 n 次的时间代价为 O(n!)。
+     * 空间复杂度： O(n)。 n 层递归的开销。
+     */
+    public int calculate(int low, int high) {
+        if (low >= high)
+            return 0;
+        int minResult = Integer.MAX_VALUE;
+        // 遍历每一个 i 作为尝试，只需要从右边区间获取最大开销即可
+        for (int i = (low + high) / 2; i <= high; i++) {
+            int res = i + Math.max(calculate(i + 1, high), calculate(low, i - 1));
+            minResult = Math.min(res, minResult);
+        }
+        return minResult;
+    }
 
     @Test
     public void test() {
