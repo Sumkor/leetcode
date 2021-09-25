@@ -129,12 +129,17 @@ public class Solution04 {
      *
      * 这个我觉得看懂 dp[1][3] 不难理解，要是理解不了的话，我这样解释一下(明白的不用看)：
      *
-     * i i+1 i+2 ... ... j-2 j-1 j
+     * i i+1 i+2 ... k ... j-2 j-1 j
      *
-     * 以 i+1 为分割点对应的： dp1 = max(dp[i][i], dp[i+2][j]) + i+1
-     * 以 j-1 为分割点对应的: dp2 = max(dp[i][j-2], dp[j][j]) + j-1
+     * 以 i+1 为分割点对应的： dp1 = i+1 + max(dp[i][i], dp[i+2][j])
+     * ...
+     * 以 k   为分割点对应的： dpk = k + max(dp[i][k-1], dp[k+1][j])
+     * ...
+     * 以 j-1 为分割点对应的:  dp2 = j-1 + max(dp[i][j-2], dp[j][j])
+     *
      * 特别地，以 i 为分割点： dp0 = i + dp[i+1][j]; 以 j 为分割点: dp3 = j + dp[i][j-1]
-     * dp[i][j] = min(dp0,dp1,dp2,dp3)
+     * 可得：
+     * dp[i][j] = min(dp0,dp1,..dpk..,dp2,dp3)
      *
      *
      *
@@ -142,11 +147,12 @@ public class Solution04 {
      *
      * 给出一个 dp 二维数组来用代码填充它，“\”表示正无穷
      *
-     * (1)初始化：         (2)易知dp[i][i]=0
-     * | \ \ \ \ |         | 0 \ \ \ |
-     * | \ \ \ \ |         | \ 0 \ \ |
-     * | \ \ \ \ |         | \ \ 0 \ |
-     * | \ \ \ \ |         | \ \ \ 0 |
+     * (1)初始化：           (2)易知dp[i][i]=0
+     *     1 2 3 4              1 2 3 4
+     * 1 | \ \ \ \ |        1 | 0 \ \ \ |
+     * 2 | \ \ \ \ |        2 | \ 0 \ \ |
+     * 3 | \ \ \ \ |        3 | \ \ 0 \ |
+     * 4 | \ \ \ \ |        4 | \ \ \ 0 |
      *
      * 接下来要考虑怎么填充矩阵以得到 dp[1][n]:
      * 很容易我们发现可以用一个位置左边和下边地数据来计算它本身，因此可以这样填充
@@ -158,13 +164,13 @@ public class Solution04 {
      * | \ \ \ 0 |
      *
      * (4)再填充 1 列：
-     * | 0 1 x \ |  dp[1][3]计算步骤向上看
+     * | 0 1 x \ |  dp[1][3]计算步骤向上看(后填充)
      * | \ 0 2 \ |  dp[2][3]计算步骤向上看(先填充)
      * | \ \ 0 \ |
      * | \ \ \ 0 |
      *
      * (5)再填充最后一列:
-     * | 0 1 x x |  dp[1][4]计算步骤向上看
+     * | 0 1 x x |  dp[1][4]计算步骤向上看(最后填充)
      * | \ 0 2 x |  dp[2][4]计算步骤向上看(然后填充)
      * | \ \ 0 x |  dp[3][4]计算步骤向上看(先填充)
      * | \ \ \ 0 |
@@ -208,7 +214,7 @@ public class Solution04 {
     }
 
     /**
-     * dp[i][j]表示我从[i,j]之前选择一个数字你来猜，你确保获胜所需要的最少现金
+     * dp[i][j]表示你从[i,j]之前选择一个数字我来猜，我确保获胜所需要的最少现金。
      *
      * 转移方程：
      * dp[i][j] = min(
@@ -221,21 +227,88 @@ public class Solution04 {
      *
      * 返回: dp[1][n]
      *
+     * 公式含义：
+     * 猜了第一个数字之后，需要计算出该路径下的最大花费。
+     * 依次遍历所有数字作为第一个数字，计算出所有路径各自的最大花费。
+     * 在上一步的所有最大花费中，取一个最小值，即为确保获胜所需要的最少花费。
+     *
      * 执行用时：16 ms, 在所有 Java 提交中击败了82.58% 的用户
      * 内存消耗：37.4 MB, 在所有 Java 提交中击败了82.58% 的用户
      */
     public int getMoneyAmount1(int n) {
         if (n == 1) return 0;
         int[][] dp = new int[n + 1][n + 1];
+        // 按列来，从第 2 列开始
         for (int j = 2; j <= n; j++) {
+            // 按行来，从下往上
             for (int i = j - 1; i >= 1; i--) {
+                // 算两端
                 int a = Math.min(i + dp[i + 1][j], j + dp[i][j - 1]);
+                // 算中间
                 int b = Integer.MAX_VALUE;
                 for (int k = i + 1; k <= j - 1; k++) {
                     int tmp = k + Math.max(dp[i][k - 1], dp[k + 1][j]);
                     b = Math.min(b, tmp);
                 }
+                // 取最小
                 dp[i][j] = Math.min(a, b);
+            }
+        }
+        return dp[1][n];
+    }
+
+    /**
+     * 按照官方题解的思路，进行剪枝。
+     * 在上一个方法中，我们尝试使用 (i, j) 中的每一个数作为第一个选的数。
+     * 实际上，只需要从 (i+(len-1)/2, j) 中选第一个数就可以了，其中 len 是当前区间的长度，len = j-i+1
+     *
+     * 执行用时：11 ms, 在所有 Java 提交中击败了97.19% 的用户
+     * 内存消耗：37.5 MB, 在所有 Java 提交中击败了69.31% 的用户
+     */
+    public int getMoneyAmount2(int n) {
+        if (n == 1) return 0;
+        int[][] dp = new int[n + 1][n + 1];
+        for (int j = 2; j <= n; j++) {
+            for (int i = j - 1; i >= 1; i--) {
+                // 算两端（不变）
+                int a = Math.min(i + dp[i + 1][j], j + dp[i][j - 1]);
+                // 算中间（剪枝）
+                int b = Integer.MAX_VALUE;
+                int len = j - i + 1;
+                for (int k = i + (len - 1) / 2; k <= j - 1; k++) {
+                    int tmp = k + Math.max(dp[i][k - 1], dp[k + 1][j]);
+                    b = Math.min(b, tmp);
+                }
+                // 取最小
+                dp[i][j] = Math.min(a, b);
+            }
+        }
+        return dp[1][n];
+    }
+
+    /**
+     * 先算两端，再算中间，其实是为了避免在边界情况下数组越位
+     * 只需要在定义 dp 数组时，预留会导致 k 越位的位置即可
+     * 这样就可以只算中间（会自动覆盖两端）
+     *
+     * 执行用时：11 ms, 在所有 Java 提交中击败了97.19% 的用户
+     * 内存消耗：37.3 MB, 在所有 Java 提交中击败了89.00% 的用户
+     */
+    public int getMoneyAmount3(int n) {
+        if (n == 1) return 0;
+        // 预留多一行
+        int[][] dp = new int[n + 2][n + 1];
+        for (int j = 2; j <= n; j++) {
+            for (int i = j - 1; i >= 1; i--) {
+                // 算两端和中间（剪枝）
+                int b = Integer.MAX_VALUE;
+                int len = j - i + 1;
+                for (int k = i + (len - 1) / 2; k <= j; k++) {
+                    int tmp = k + Math.max(dp[i][k - 1], dp[k + 1][j]);
+                    b = Math.min(b, tmp);
+                }
+                // 取最小
+                dp[i][j] = b;
             }
         }
         return dp[1][n];
@@ -244,9 +317,8 @@ public class Solution04 {
     @Test
     public void test() {
         int[][] a = new int[2][3]; // 两行，每行三个
-
         int n = 10;
-        int moneyAmount = getMoneyAmount(n);
+        int moneyAmount = getMoneyAmount3(n);
         Assert.assertEquals(16, moneyAmount);
 
     }

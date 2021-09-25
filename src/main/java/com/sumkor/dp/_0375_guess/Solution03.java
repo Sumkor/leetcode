@@ -1,5 +1,8 @@
 package com.sumkor.dp._0375_guess;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * @author Sumkor
  * @since 2021/9/24
@@ -17,7 +20,7 @@ public class Solution03 {
      * 如果区间只剩下一个数 k ，那么猜中的代价永远为 0。也就是说，所有的 dp(k,k) 都初始化为 0。
      * 然后，对于长度为 2 的区间，我们需要所有长度为 1 的区间的结果。由此我们可以看出，为了求出长度为 len 区间的解，我们需要所有长度为 len−1 的解。
      *
-     * 对于每个 dp(i,j)，当前长度为 len = j−i+1。从 i 到 j 范围依次挑选每个数字作为第一次尝试的答案，可以求出最小开销：
+     * 对于每个 dp(i,j)，当前长度为 len = j-i+1。从 i 到 j 范围依次挑选每个数字作为第一次尝试的答案，可以求出最小开销：
      * cost(i,j) = pivot + max(cost(i,pivot−1), cost(pivot+1,n))
      *
      * 但是在计算开销的时候我们有一个便利之处，就是我们已经知道了小于 len 长度 dp 数组的所有答案。因此 dp 方程式变成了：
@@ -48,7 +51,7 @@ public class Solution03 {
      * 优化后的动态规划
      *
      * 在上一个方法中，我们尝试使用 (i ,j) 中的每一个数作为第一个选的数。
-     * 实际上，只需要从 (i+(len−1)/2 ,j) 中选第一个数就可以了，其中 len 是当前区间的长度
+     * 实际上，只需要从 (i+(len-1)/2 ,j) 中选第一个数就可以了，其中 len 是当前区间的长度
      *
      * 时间复杂度： O(n^3) 。我们遍历 dp 数组一遍需要 O(n^2) 的时间开销。对于数组中每个元素，我们最多需要遍历 n/2 个数字。
      * 空间复杂度： O(n^2) 。需要创建 n^2 空间的 dp数组。
@@ -72,4 +75,10 @@ public class Solution03 {
         return dp[1][n];
     }
 
+    @Test
+    public void test() {
+        int n = 4;
+        int moneyAmount = getMoneyAmount(n);
+        Assert.assertEquals(4, moneyAmount);
+    }
 }
