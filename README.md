@@ -97,6 +97,10 @@
 
 - [0704. Binary Search](src/main/java/com/sumkor/binarysearch/_0704_search/Solution.java) (Easy)
 
+- [0033. Search in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0033_search/Solution.java) (Medium)
 - [0069. Sqrt(x)](src/main/java/com/sumkor/binarysearch/_0069_sqrtx/Solution.java) (Easy)
+- [0153. Find Minimum in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0153_findmin/Solution.java) (Medium)
+- [0154. Find Minimum in Rotated Sorted Array II](src/main/java/com/sumkor/binarysearch/_0154_findmin/Solution02.java) (Hard)
+- [0162. Find Peak Element](src/main/java/com/sumkor/binarysearch/_0162_findpeak/Solution.java) (Medium)
 - [0374. Guess Number Higher or Lower](src/main/java/com/sumkor/binarysearch/_0374_guessnum/Solution.java) (Easy)
 - [0875. Koko Eating Bananas](src/main/java/com/sumkor/binarysearch/_0875_banana/Solution02.java) (Medium)
