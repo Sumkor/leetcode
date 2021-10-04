@@ -102,5 +102,11 @@
 - [0153. Find Minimum in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0153_findmin/Solution.java) (Medium)
 - [0154. Find Minimum in Rotated Sorted Array II](src/main/java/com/sumkor/binarysearch/_0154_findmin/Solution02.java) (Hard)
 - [0162. Find Peak Element](src/main/java/com/sumkor/binarysearch/_0162_findpeak/Solution.java) (Medium)
-- [0374. Guess Number Higher or Lower](src/main/java/com/sumkor/binarysearch/_0374_guessnum/Solution.java) (Easy)
+- [0374. Guess Number Higher or Lower](src/main/java/com/sumkor/binarysearch/_0374_guess/Solution.java) (Easy)
 - [0875. Koko Eating Bananas](src/main/java/com/sumkor/binarysearch/_0875_banana/Solution02.java) (Medium)
+
+## 数学
+
+-[0007. Reverse Integer](src/main/java/com/sumkor/math/_0007_reverse/Solution.java) (Easy)
+-[0009. Palindrome Number](src/main/java/com/sumkor/math/_0009_palindrome/Solution.java) (Easy)
+-[0050. Pow(x, n)](src/main/java/com/sumkor/math/_0050_pow/Solution02.java) (Medium)
