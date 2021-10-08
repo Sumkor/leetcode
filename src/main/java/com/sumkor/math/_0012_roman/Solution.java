@@ -9,7 +9,7 @@ import org.junit.Test;
 public class Solution {
 
     /**
-     * 贪心
+     * 模拟
      *
      * 执行用时：4 ms, 在所有 Java 提交中击败了99.97% 的用户
      * 内存消耗：37.8 MB, 在所有 Java 提交中击败了69.26% 的用户
@@ -72,7 +72,7 @@ public class Solution {
     }
 
     /**
-     * 贪心（官方题解，思路一致，写法简洁）
+     * 模拟（官方题解，思路一致，写法简洁）
      * https://leetcode-cn.com/problems/integer-to-roman/solution/zheng-shu-zhuan-luo-ma-shu-zi-by-leetcod-75rs/
      *
      * 时间复杂度：O(1)。由于 value symbols 数组长度是固定的，且这 13 字符中的每个字符的出现次数均不会超过 3，因此循环次数有一个确定的上限。对于本题给出的数据范围，循环次数不会超过 15 次。

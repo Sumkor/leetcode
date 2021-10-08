@@ -75,6 +75,7 @@
 - [0222. Count Complete Tree Nodes](src/main/java/com/sumkor/tree/_0222_complete/Solution02.java) (Medium)
 - [0226. Invert Binary Tree](src/main/java/com/sumkor/tree/_0226_invert/Solution.java) (Easy)
 
+
 - [0098. Validate Binary Search Tree](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Medium)
 - [0700. Search in a Binary Search Tree](src/main/java/com/sumkor/tree/_0700_searchbst/Solution02.java) (Easy)
 
@@ -97,6 +98,7 @@
 
 - [0704. Binary Search](src/main/java/com/sumkor/binarysearch/_0704_search/Solution.java) (Easy)
 
+
 - [0033. Search in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0033_search/Solution.java) (Medium)
 - [0069. Sqrt(x)](src/main/java/com/sumkor/binarysearch/_0069_sqrtx/Solution.java) (Easy)
 - [0153. Find Minimum in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0153_findmin/Solution.java) (Medium)
@@ -111,4 +113,6 @@
 - [0009. Palindrome Number](src/main/java/com/sumkor/math/_0009_palindrome/Solution.java) (Easy)
 - [0012. Integer to Roman](src/main/java/com/sumkor/math/_0012_roman/Solution.java) (Medium)
 - [0013. Roman to Integer](src/main/java/com/sumkor/math/_0013_roman/Solution.java) (Easy)
+- [0029. Divide Two Integers](src/main/java/com/sumkor/math/_0029_divide/Solution.java) (Medium)
+- [0043. Multiply Strings](src/main/java/com/sumkor/math/_0043_multiply/Solution02.java) (Medium)
 - [0050. Pow(x, n)](src/main/java/com/sumkor/math/_0050_pow/Solution02.java) (Medium)
