@@ -1,4 +1,4 @@
-package com.sumkor.array._0066_plusone;
+package com.sumkor.math._0066_plusone;
 
 import org.junit.Test;
 

@@ -6,7 +6,7 @@
 
 - [0026. Remove Duplicates from Sorted Array](src/main/java/com/sumkor/array/_0026_remove/Solution.java) (Easy)
 - [0027. Remove Element](src/main/java/com/sumkor/array/_0027_remove/Solution02.java) (Easy)
-- [0066. Plus One](src/main/java/com/sumkor/array/_0066_plusone/Solution.java) (Easy)
+- [0048. Rotate Image](src/main/java/com/sumkor/array/_0048_rotate/Solution.java) (Medium)
 - [0121. Best Time to Buy and Sell Stock](src/main/java/com/sumkor/array/_0121_stock/Solution.java) (Easy)
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution.java) (Easy)
 - [0189. Rotate Array](src/main/java/com/sumkor/array/_0189_rotate/Solution02.java) (Medium)
@@ -116,3 +116,4 @@
 - [0029. Divide Two Integers](src/main/java/com/sumkor/math/_0029_divide/Solution.java) (Medium)
 - [0043. Multiply Strings](src/main/java/com/sumkor/math/_0043_multiply/Solution02.java) (Medium)
 - [0050. Pow(x, n)](src/main/java/com/sumkor/math/_0050_pow/Solution02.java) (Medium)
+- [0066. Plus One](src/main/java/com/sumkor/math/_0066_plusone/Solution.java) (Easy)
