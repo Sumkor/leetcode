@@ -10,6 +10,11 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# maven ignore
+**/target/
+*.versionsBackup
+.mvn
+
 # IDEA
 .idea
 /target/

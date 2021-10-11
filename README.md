@@ -75,6 +75,7 @@
 - [0222. Count Complete Tree Nodes](src/main/java/com/sumkor/tree/_0222_complete/Solution02.java) (Medium)
 - [0226. Invert Binary Tree](src/main/java/com/sumkor/tree/_0226_invert/Solution.java) (Easy)
 
+<br/>
 
 - [0098. Validate Binary Search Tree](src/main/java/com/sumkor/tree/_0098_validatebst/Solution.java) (Medium)
 - [0700. Search in a Binary Search Tree](src/main/java/com/sumkor/tree/_0700_searchbst/Solution02.java) (Easy)
@@ -90,6 +91,8 @@
 - [0078. Subsets](src/main/java/com/sumkor/backtrack/_0078_subsets/Solution.java) (Medium)
 - [0090. Subsets II](src/main/java/com/sumkor/backtrack/_0090_subsets/Solution.java) (Medium)
 
+<br/>
+
 - [0017. Letter Combinations of a Phone Number](src/main/java/com/sumkor/backtrack/_0017_phone/Solution.java) (Medium)
 - [0022. Generate Parentheses](src/main/java/com/sumkor/backtrack/_0022_parenthesis/Solution02.java) (Medium)
 - [0093. Restore IP Addresses](src/main/java/com/sumkor/backtrack/_0093_restoreip/Solution02.java) (Medium)
@@ -98,6 +101,7 @@
 
 - [0704. Binary Search](src/main/java/com/sumkor/binarysearch/_0704_search/Solution.java) (Easy)
 
+<br/>
 
 - [0033. Search in Rotated Sorted Array](src/main/java/com/sumkor/binarysearch/_0033_search/Solution.java) (Medium)
 - [0069. Sqrt(x)](src/main/java/com/sumkor/binarysearch/_0069_sqrtx/Solution.java) (Easy)

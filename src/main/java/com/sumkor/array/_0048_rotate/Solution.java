@@ -16,14 +16,16 @@ public class Solution {
      * 1 2 3
      * 4 5 6
      * 7 8 9
-     *   ↓
+     *   ↓  左右翻转
      * 3 2 1
      * 6 5 4
      * 9 8 7
-     *   ↓
+     *   ↓  对角线翻转
      * 7 4 1
      * 8 5 2
      * 9 6 3
+     *
+     * 参考 leetcode 189 题的翻转思路 {@link com.sumkor.array._0189_rotate.Solution03}
      *
      * 执行用时：0 ms, 在所有 Java 提交中击败了100.00% 的用户
      * 内存消耗：38.8 MB, 在所有 Java 提交中击败了5.35% 的用户
