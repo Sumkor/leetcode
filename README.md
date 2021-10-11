@@ -11,6 +11,7 @@
 - [0122. Best Time to Buy and Sell Stock II](src/main/java/com/sumkor/array/_0122_stock/Solution.java) (Easy)
 - [0189. Rotate Array](src/main/java/com/sumkor/array/_0189_rotate/Solution02.java) (Medium)
 - [0189. Rotate Array](src/main/java/com/sumkor/array/_0189_rotate/Solution03.java) (Medium)
+- [0498. Diagonal Traverse](src/main/java/com/sumkor/array/_0498_diagonal/Solution.java) (Medium)
 
 ## 双指针
 
