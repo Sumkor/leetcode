@@ -4,6 +4,7 @@
 
 ## 数组
 
+- [0004. Median of Two Sorted Arrays](src/main/java/com/sumkor/array/_0004_findmedian/Solution02.java) (Hard)
 - [0026. Remove Duplicates from Sorted Array](src/main/java/com/sumkor/array/_0026_remove/Solution.java) (Easy)
 - [0027. Remove Element](src/main/java/com/sumkor/array/_0027_remove/Solution02.java) (Easy)
 - [0048. Rotate Image](src/main/java/com/sumkor/array/_0048_rotate/Solution.java) (Medium)
