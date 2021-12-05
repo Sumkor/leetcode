@@ -1,5 +1,7 @@
 package com.sumkor.math._0050_pow;
 
+import org.junit.Test;
+
 /**
  * @author Sumkor
  * @since 2021/10/4 下午3:18
@@ -43,4 +45,9 @@ public class Solution02 {
         return N % 2 == 0 ? y * y : y * y * x;
     }
 
+    @Test
+    public void test() {
+        double pow = myPow(2d, 5);
+        System.out.println("pow = " + pow);
+    }
 }

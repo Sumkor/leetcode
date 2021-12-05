@@ -1,5 +1,7 @@
 package com.sumkor.math._0050_pow;
 
+import org.junit.Test;
+
 /**
  * @author Sumkor
  * @since 2021/10/4 下午3:45
@@ -41,6 +43,12 @@ public class Solution03 {
             N /= 2;
         }
         return ans;
+    }
+
+    @Test
+    public void test() {
+        double pow = myPow(2d, 5);
+        System.out.println("pow = " + pow);
     }
 
 }

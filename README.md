@@ -125,4 +125,5 @@
 - [0050. Pow(x, n)](src/main/java/com/sumkor/math/_0050_pow/Solution02.java) (Medium)
 - [0066. Plus One](src/main/java/com/sumkor/math/_0066_plusone/Solution.java) (Easy)
 - [0067. Add Binary](src/main/java/com/sumkor/math/_0067_addbinary/Solution.java) (Easy)
+- [0089. Gray Code](src/main/java/com/sumkor/math/_0089_graycode/Solution.java) (Medium)
 - [0458. Poor Pigs](src/main/java/com/sumkor/math/_0458_poorpigs/Solution.java) (Hard)
